@@ -58,3 +58,12 @@ Hand-eye calibration (rc_hand_eye_calibration, Section
 to calibrate the camera with respect to a robot, either via the Web
 GUI or the REST-API.
 
+IO and Projector Control (rc_iocontrol, Section \ref{iocontrol:sect-
+iocontrol})  provides control over the rc_visard's general purpose
+inputs and outputs with special modes for controlling an external
+random dot projector.
+
+TagDetect (rc_april_tag_detect and rc_qr_code_detect, Section
+\ref{tagdetect:sect-tag-detection})  allows the detection of AprilTags
+and QR codes, as well as the estimation of their poses.
+

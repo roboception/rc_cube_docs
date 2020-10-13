@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>IOControl und Projektor-Kontrolle &mdash; rc_cube 20.10.0-4-g5974e5f
+  <title>IOControl und Projektor-Kontrolle &mdash; rc_cube 20.10.1
  Dokumentation</title>
   
 
@@ -46,11 +46,11 @@
         <link rel="index" title="Stichwortverzeichnis"
               href="genindex.html"/>
         <link rel="search" title="Suche" href="search.html"/>
-    <link rel="top" title="rc_cube 20.10.0-4-g5974e5f
+    <link rel="top" title="rc_cube 20.10.1
  Dokumentation" href="index.html"/>
-        <link rel="up" title="Optionale Softwaremodule" href="optional.html"/>
+        <link rel="up" title="Softwaremodule" href="components.html"/>
         <link rel="next" title="TagDetect" href="tagdetect.html"/>
-        <link rel="prev" title="Optionale Softwaremodule" href="optional.html"/> 
+        <link rel="prev" title="Hand-Auge-Kalibrierung" href="handeye_calibration.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -146,7 +146,7 @@
 <li class="toctree-l2"><a class="reference internal" href="concept_stereo.html">Stereovision</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="components.html">Softwaremodule</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="components.html">Softwaremodule</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="stereo_camera.html">Stereokamera</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="stereo_camera.html#image-acquisition">Bilderfassung</a></li>
 <li class="toctree-l3"><a class="reference internal" href="stereo_camera.html#planar-rectification">Planare Rektifizierung</a></li>
@@ -210,9 +210,6 @@
 </li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="reference internal" href="optional.html">Optionale Softwaremodule</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">IOControl und Projektor-Kontrolle</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#parameters">Parameter</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#parameter-overview">Übersicht über die Parameter</a></li>
@@ -251,6 +248,9 @@
 </li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="optional.html">Optionale Softwaremodule</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="itempick.html">ItemPick und BoxPick</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="itempick.html#introduction">Einführung</a></li>
 <li class="toctree-l3"><a class="reference internal" href="itempick.html#detection-of-items-boxpick">Erkennung von Rechtecken (BoxPick)</a></li>
@@ -584,7 +584,7 @@
     
       <li><a href="index.html">Dokumentation</a> &raquo;</li>
         
-          <li><a href="optional.html">Optionale Softwaremodule</a> &raquo;</li>
+          <li><a href="components.html">Softwaremodule</a> &raquo;</li>
         
       <li>IOControl und Projektor-Kontrolle</li>
     
@@ -607,10 +607,6 @@
 <span id="sect-iocontrol"></span><h1>IOControl und Projektor-Kontrolle<a class="headerlink" href="#io-and-projector-control" title="Link zu dieser Überschrift">¶</a></h1>
 <p>Das IOControl-Modul ermöglicht das Lesen der digitalen Eingänge und die Kontrolle der digitalen Ausgänge (GPIOs) des <em>rc_visard</em>. Die Ausgänge können auf <cite>aus</cite> (LOW) oder <cite>an</cite> (HIGH) gesetzt werden. Sie können auch so konfiguriert werden, dass sie genau für die Belichtungszeit jedes Bildes, oder auch nur jedes zweiten Bildes, <cite>an</cite> sind.</p>
 <p>Das IOControl-Modul dient der Ansteuerung einer externen Lichtquelle oder eines Projektors, der an einen der GPIO-Ausgänge des <em>rc_visard</em> angeschlossen wird, und der mit der Bildaufnahme synchronisiert ist. Für den Fall, dass ein Musterprojektor für die Verbesserung des Stereo-Matchings verwendet wird, ist das projizierte Muster auch in den Intensitätsbildern sichtbar. Das kann für Bildverarbeitungs-Anwendungen, die auf dem Intensitätsbild basieren (z.B. Kantendetektion), von Nachteil sein. Aus diesem Grund erlaubt das IOControl-Modul auch das Setzen der Ausgänge für nur jedes zweite Kamerabild. Somit sind auch Intensitätsbilder ohne projiziertes Muster verfügbar.</p>
-<div class="admonition note">
-<p class="first admonition-title">Bemerkung</p>
-<p class="last">Das IOControl-Modul ist optional und benötigt eine eigene <a class="reference internal" href="maintenance.html#sect-updating-license"><span class="std std-ref">Lizenz</span></a>, welche erworben werden muss.</p>
-</div>
 <div class="section" id="parameters">
 <span id="sect-iocontrol-parameters"></span><h2>Parameter<a class="headerlink" href="#parameters" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Das IOControl-Modul wird in der REST-API als <code class="docutils literal notranslate"><span class="pre">rc_iocontrol</span></code> bezeichnet und in der <a class="reference internal" href="installation.html#sect-web-gui"><span class="std std-ref">Web GUI</span></a> auf der Seite <em>IOControl</em> (unter der Seite <em>Module</em>) dargestellt. Der Benutzer kann die Parameter über die Web GUI, die REST-API (<a class="reference internal" href="rest_api.html#sect-rest-api"><span class="std std-ref">REST-API-Schnittstelle</span></a>), oder die GenICam-Schnittstelle mit den DigitalIOControl-Parametern <code class="docutils literal notranslate"><span class="pre">LineSelector</span></code> und <code class="docutils literal notranslate"><span class="pre">LineSource</span></code> ändern (<a class="reference internal" href="gigevision.html#sect-genicam"><span class="std std-ref">GigE&nbsp;Vision&nbsp;2.0/GenICam-Schnittstelle</span></a>).</p>
@@ -790,7 +786,7 @@
         <a href="tagdetect.html" class="btn btn-neutral float-right" title="TagDetect" accesskey="n" rel="next">Weiter <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="optional.html" class="btn btn-neutral" title="Optionale Softwaremodule" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Zurück</a>
+        <a href="handeye_calibration.html" class="btn btn-neutral" title="Hand-Auge-Kalibrierung" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Zurück</a>
       
     </div>
   
@@ -853,7 +849,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'20.10.0-4-g5974e5f',
+            VERSION:'20.10.1',
             LANGUAGE:'de',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

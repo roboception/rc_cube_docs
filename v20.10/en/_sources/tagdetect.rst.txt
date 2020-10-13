@@ -12,12 +12,6 @@ components, furthermore, compute the position and orientation of each
 tag in the 3D camera coordinate system, making it simple to manipulate
 a tag with a robot or to localize the camera with respect to a tag.
 
-Note: The TagDetect components are optional and require a separate
-
-  license
-
-   to be purchased.
-
 Tag detection is made up of three steps:
 
 Tag reading on the 2D image pair (see Tag reading, Section

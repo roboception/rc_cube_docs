@@ -13,13 +13,6 @@ Markers im 3D-Kamerakoordinatensystem, um diesen beispielsweise mit
 einem Roboter zu manipulieren oder die Pose der Kamera in Bezug auf
 den Marker zu berechnen.
 
-Bemerkung: Die TagDetect-Module sind optional und benötigen eine
-  separate
-
-  Lizenz
-
-  .
-
 Die Markererkennung besteht aus drei Schritten:
 
 Markererkennung auf dem 2D-Bildpaar (siehe Markererkennung, Abschnitt

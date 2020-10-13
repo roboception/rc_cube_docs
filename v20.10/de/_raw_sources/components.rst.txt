@@ -72,6 +72,13 @@ The |rc_xxx|'s base software consists of the following components:
    enables the user to calibrate the camera with respect to a robot,
    either via the |webgui| or the |restapi|.
 
+- :doc:`iocontrol` (``rc_iocontrol``:latex:`, Section \ref{iocontrol:sect-iocontrol}`)
+   provides control over the |rc_visard|'s general purpose inputs and outputs with special modes
+   for controlling an external random dot projector.
+
+- :doc:`tagdetect` (``rc_april_tag_detect`` and ``rc_qr_code_detect``:latex:`, Section \ref{tagdetect:sect-tag-detection}`)
+   allows the detection of AprilTags and QR codes, as well as the estimation of their poses.
+
 .. toctree-filt::
    :maxdepth: 2
    :hidden:
@@ -83,3 +90,6 @@ The |rc_xxx|'s base software consists of the following components:
    :rc_cube_exclude:stereo_ins
    :rc_cube_exclude:camera_calibration
    handeye_calibration
+   iocontrol
+   tagdetect
+

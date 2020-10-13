@@ -23,13 +23,6 @@ setting GPIO outputs to HIGH for the exposure time of every second
 image, so that intensity images without the projected pattern are also
 available.
 
-Note: The IOControl component is optional and requires the purchase
-  of a separate
-
-  license
-
-  .
-
 Parameters
 
 The IOControl component is called "rc_iocontrol" in the REST-API and

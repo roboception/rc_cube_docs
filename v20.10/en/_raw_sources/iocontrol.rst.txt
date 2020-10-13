@@ -26,11 +26,6 @@ every second image, so that intensity images without the projected pattern are a
    .. Note:: For more details on the |rc_visard|'s GPIOs please refer to
              :ref:`sect-wiring`:latex:`, Section \ref{hardware_spec:sect-wiring}`.
 
-.. Note::
-
-   The IOControl component is optional and requires the purchase of a separate
-   :ref:`license<sect-updating-license>`:latex:`\:(Section \ref{maintenance:sect-updating-license})`.
-
 .. _sect-iocontrol-parameters:
 
 Parameters

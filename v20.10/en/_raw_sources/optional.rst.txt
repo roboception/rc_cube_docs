@@ -18,13 +18,6 @@ The |rc_xxx|'s optional software consists of the following components:
       accumulated poses. The |rcvisard|'s covered trajectory is offered via the
       :ref:`sect-rest-api`:latex:`\:(Section \ref{rest_api:sect-rest-api})`.
 
-- :doc:`iocontrol` (``rc_iocontrol``:latex:`, Section \ref{iocontrol:sect-iocontrol}`)
-   provides control over the |rc_visard|'s general purpose inputs and outputs with special modes
-   for controlling an external random dot projector.
-
-- :doc:`tagdetect` (``rc_april_tag_detect`` and ``rc_qr_code_detect``:latex:`, Section \ref{tagdetect:sect-tag-detection}`)
-   allows the detection of AprilTags and QR codes, as well as the estimation of their poses.
-
 - :doc:`itempick` (``rc_itempick`` and ``rc_boxpick``:latex:`, Section \ref{itempick:sect-itempick}`)
    provides an out-of-the-box perception solution for robotic pick-and-place
    applications of unknown objects or boxes.
@@ -50,14 +43,11 @@ which are used in multiple optional software components. The common functionalit
 - :doc:`roi`:latex:`\:(Section \ref{roi:sect-roi})`
    allows setting and retrieving 3D regions of interest.
 
-
 .. toctree-filt::
    :maxdepth: 2
    :hidden:
 
    :rc_cube_exclude:slam
-   iocontrol
-   tagdetect
    itempick
    silhouettematch
    :rc_visard_exclude:cadmatch

@@ -25,12 +25,6 @@ IOControl-Modul auch das Setzen der Ausgänge für nur jedes zweite
 Kamerabild. Somit sind auch Intensitätsbilder ohne projiziertes Muster
 verfügbar.
 
-Bemerkung: Das IOControl-Modul ist optional und benötigt eine eigene
-
-  Lizenz
-
-  , welche erworben werden muss.
-
 Parameter
 
 Das IOControl-Modul wird in der REST-API als "rc_iocontrol" bezeichnet

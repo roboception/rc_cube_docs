@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>TagDetect &mdash; rc_cube 20.10.0-4-g5974e5f
+  <title>TagDetect &mdash; rc_cube 20.10.1
  Dokumentation</title>
   
 
@@ -46,10 +46,10 @@
         <link rel="index" title="Stichwortverzeichnis"
               href="genindex.html"/>
         <link rel="search" title="Suche" href="search.html"/>
-    <link rel="top" title="rc_cube 20.10.0-4-g5974e5f
+    <link rel="top" title="rc_cube 20.10.1
  Dokumentation" href="index.html"/>
-        <link rel="up" title="Optionale Softwaremodule" href="optional.html"/>
-        <link rel="next" title="ItemPick und BoxPick" href="itempick.html"/>
+        <link rel="up" title="Softwaremodule" href="components.html"/>
+        <link rel="next" title="Optionale Softwaremodule" href="optional.html"/>
         <link rel="prev" title="IOControl und Projektor-Kontrolle" href="iocontrol.html"/> 
 
   
@@ -146,7 +146,7 @@
 <li class="toctree-l2"><a class="reference internal" href="concept_stereo.html">Stereovision</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="components.html">Softwaremodule</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="components.html">Softwaremodule</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="stereo_camera.html">Stereokamera</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="stereo_camera.html#image-acquisition">Bilderfassung</a></li>
 <li class="toctree-l3"><a class="reference internal" href="stereo_camera.html#planar-rectification">Planare Rektifizierung</a></li>
@@ -210,9 +210,6 @@
 </li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="reference internal" href="optional.html">Optionale Softwaremodule</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="iocontrol.html">IOControl und Projektor-Kontrolle</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="iocontrol.html#parameters">Parameter</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="iocontrol.html#parameter-overview">Übersicht über die Parameter</a></li>
@@ -251,6 +248,9 @@
 </li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="optional.html">Optionale Softwaremodule</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="itempick.html">ItemPick und BoxPick</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="itempick.html#introduction">Einführung</a></li>
 <li class="toctree-l3"><a class="reference internal" href="itempick.html#detection-of-items-boxpick">Erkennung von Rechtecken (BoxPick)</a></li>
@@ -584,7 +584,7 @@
     
       <li><a href="index.html">Dokumentation</a> &raquo;</li>
         
-          <li><a href="optional.html">Optionale Softwaremodule</a> &raquo;</li>
+          <li><a href="components.html">Softwaremodule</a> &raquo;</li>
         
       <li>TagDetect</li>
     
@@ -608,10 +608,6 @@
 <div class="section" id="introduction">
 <span id="index-0"></span><h2>Einführung<a class="headerlink" href="#introduction" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Die TagDetect-Module laufen intern auf dem <em>rc_cube</em> und ermöglichen es, 2D-Barcodes und Marker zu erkennen. Derzeit gibt es TagDetect-Module für <cite>QR-Codes</cite> und <cite>AprilTags</cite>. Neben der Erkennung berechnen die Module die Position und Orientierung jedes Markers im 3D-Kamerakoordinatensystem, um diesen beispielsweise mit einem Roboter zu manipulieren oder die Pose der Kamera in Bezug auf den Marker zu berechnen.</p>
-<div class="admonition note">
-<p class="first admonition-title">Bemerkung</p>
-<p class="last">Die TagDetect-Module sind optional und benötigen eine separate <a class="reference internal" href="maintenance.html#sect-updating-license"><span class="std std-ref">Lizenz</span></a>.</p>
-</div>
 <p>Die Markererkennung besteht aus drei Schritten:</p>
 <ol class="arabic simple">
 <li>Markererkennung auf dem 2D-Bildpaar (siehe <a class="reference internal" href="#sect-tag-reading"><span class="std std-ref">Markererkennung</span></a>).</li>
@@ -1203,7 +1199,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="itempick.html" class="btn btn-neutral float-right" title="ItemPick und BoxPick" accesskey="n" rel="next">Weiter <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="optional.html" class="btn btn-neutral float-right" title="Optionale Softwaremodule" accesskey="n" rel="next">Weiter <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="iocontrol.html" class="btn btn-neutral" title="IOControl und Projektor-Kontrolle" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Zurück</a>
@@ -1269,7 +1265,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'20.10.0-4-g5974e5f',
+            VERSION:'20.10.1',
             LANGUAGE:'de',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

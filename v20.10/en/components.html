@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Software components &mdash; rc_cube 20.10.0-4-g5974e5f
+  <title>Software components &mdash; rc_cube 20.10.1
  documentation</title>
   
 
@@ -46,7 +46,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="rc_cube 20.10.0-4-g5974e5f
+    <link rel="top" title="rc_cube 20.10.1
  documentation" href="index.html"/>
         <link rel="next" title="Stereo camera" href="stereo_camera.html"/>
         <link rel="prev" title="Stereo vision" href="concept_stereo.html"/> 
@@ -209,9 +209,6 @@
 </li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="optional.html">Optional software components</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="iocontrol.html">IO and Projector Control</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="iocontrol.html#parameters">Parameters</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="iocontrol.html#parameter-overview">Parameter overview</a></li>
@@ -250,6 +247,9 @@
 </li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="optional.html">Optional software components</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="itempick.html">ItemPick and BoxPick</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="itempick.html#introduction">Introduction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="itempick.html#detection-of-items-boxpick">Detection of items (BoxPick)</a></li>
@@ -634,6 +634,17 @@ These are provided as GenICam streams, too.</dd>
 either via the Web GUI or the REST-API.</dd>
 </dl>
 </li>
+<li><dl class="first docutils">
+<dt><a class="reference internal" href="iocontrol.html"><span class="doc">IO and Projector Control</span></a> (<code class="docutils literal notranslate"><span class="pre">rc_iocontrol</span></code>)</dt>
+<dd>provides control over the <em>rc_visard</em>’s general purpose inputs and outputs with special modes
+for controlling an external random dot projector.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><a class="reference internal" href="tagdetect.html"><span class="doc">TagDetect</span></a> (<code class="docutils literal notranslate"><span class="pre">rc_april_tag_detect</span></code> and <code class="docutils literal notranslate"><span class="pre">rc_qr_code_detect</span></code>)</dt>
+<dd>allows the detection of AprilTags and QR codes, as well as the estimation of their poses.</dd>
+</dl>
+</li>
 </ul>
 <div class="toctree-wrapper compound">
 </div>
@@ -715,7 +726,7 @@ either via the Web GUI or the REST-API.</dd>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'20.10.0-4-g5974e5f',
+            VERSION:'20.10.1',
             LANGUAGE:'en',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

@@ -10,7 +10,7 @@ angegebenen Revisionshinweise.
 
 Dokumentationsversion
 
- 20.10.0-4-g5974e5f  13.10.2020
+ 20.10.1  13.10.2020
 
 Gültig für
 

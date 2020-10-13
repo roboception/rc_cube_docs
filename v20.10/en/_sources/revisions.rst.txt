@@ -9,7 +9,7 @@ revision information.
 
 Documentation Revision
 
- 20.10.0-4-g5974e5f  Oct 13, 2020
+ 20.10.1  Oct 13, 2020
 
 Applicable to
 

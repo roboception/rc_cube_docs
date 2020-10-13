@@ -17,15 +17,6 @@ rc_cube
 
 's optional software consists of the following components:
 
-IO and Projector Control (rc_iocontrol, Section \ref{iocontrol:sect-
-iocontrol})  provides control over the rc_visard's general purpose
-inputs and outputs with special modes for controlling an external
-random dot projector.
-
-TagDetect (rc_april_tag_detect and rc_qr_code_detect, Section
-\ref{tagdetect:sect-tag-detection})  allows the detection of AprilTags
-and QR codes, as well as the estimation of their poses.
-
 ItemPick and BoxPick (rc_itempick and rc_boxpick, Section
 \ref{itempick:sect-itempick})  provides an out-of-the-box perception
 solution for robotic pick-and-place applications of unknown objects or

@@ -17,12 +17,6 @@ The components, furthermore, compute the position and orientation of each tag
 in the 3D camera coordinate system, making it simple to manipulate a tag
 with a robot or to localize the camera with respect to a tag.
 
-.. Note::
-
-   The TagDetect components are optional and require a separate
-   :ref:`license<sect-updating-license>`:latex:`\:(Section \ref{maintenance:sect-updating-license})`
-   to be purchased.
-
 Tag detection is made up of three steps:
 
 1. Tag reading on the 2D image pair (see :ref:`sect-tag-reading`:latex:`, Section \ref{tagdetect:sect-tag-reading}`).
