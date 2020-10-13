@@ -1,0 +1,21 @@
+Interfaces
+
+The following interfaces are provided for configuring and obtaining
+data from the
+
+rc_cube
+
+:
+
+GigE Vision 2.0/GenICam\:(Section \ref{gigevision:sect-genicam})
+Images and camera related configuration.
+
+REST API\:(Section \ref{rest_api:sect-rest-api})  API to configure the
+rc_cube, query status information, do service calls, etc.
+
+Ethernet KRL Interface (EKI)\:(Section \ref{eki:sect-eki})  API to
+configure the rc_cube and do service calls from KUKA KSS robots.
+
+Time synchronization\:(Section \ref{time_sync:sect-time-sync})  Time
+synchronization between the rc_cube and the application host.
+

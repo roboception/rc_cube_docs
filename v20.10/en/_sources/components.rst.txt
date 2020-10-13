@@ -1,0 +1,60 @@
+Software components
+
+The
+
+rc_cube
+
+ comes with several on-board software components, each of which
+corresponds to a certain functionality and can be interfaced via its
+respective
+
+node
+
+ in the
+
+REST-API interface
+
+.
+
+The
+
+Stereo camera
+
+ and the
+
+Stereo matching
+
+ components, which acquire stereo image pairs and compute 3D depth
+information such as disparity, error, and confidence images, are also
+accessible via the
+
+rc_cube
+
+'s
+
+GigE Vision/GenICam interface
+
+.
+
+The
+
+rc_cube
+
+'s base software consists of the following components:
+
+Stereo camera (rc_stereocamera, Section \ref{stereo_camera:sect-
+stereo-camera})  acquires stereo image pairs and performs planar
+rectification for using the stereo camera as a measurement device.
+Images are provided both for further internal processing by other
+components and for external use as GenICam image streams.
+
+Stereo matching (rc_stereomatching, Section \ref{stereo_matching:sect-
+stereo-matching})  uses the rectified stereo image pairs to compute 3D
+depth information such as disparity, error, and confidence images.
+These are provided as GenICam streams, too.
+
+Hand-eye calibration (rc_hand_eye_calibration, Section
+\ref{handeye_calibration:sect-handeye-calibration})  enables the user
+to calibrate the camera with respect to a robot, either via the Web
+GUI or the REST-API.
+

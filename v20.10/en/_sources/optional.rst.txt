@@ -1,0 +1,58 @@
+Optional software components
+
+The
+
+rc_cube
+
+ offers optional software components that can be activated by
+purchasing a separate
+
+license
+
+.
+
+The
+
+rc_cube
+
+'s optional software consists of the following components:
+
+IO and Projector Control (rc_iocontrol, Section \ref{iocontrol:sect-
+iocontrol})  provides control over the rc_visard's general purpose
+inputs and outputs with special modes for controlling an external
+random dot projector.
+
+TagDetect (rc_april_tag_detect and rc_qr_code_detect, Section
+\ref{tagdetect:sect-tag-detection})  allows the detection of AprilTags
+and QR codes, as well as the estimation of their poses.
+
+ItemPick and BoxPick (rc_itempick and rc_boxpick, Section
+\ref{itempick:sect-itempick})  provides an out-of-the-box perception
+solution for robotic pick-and-place applications of unknown objects or
+boxes.
+
+SilhouetteMatch (rc_silhouettematch, Section \ref{silhouettematch
+:sect-silhouettematch})  provides an object detection solution for
+objects placed on a plane.
+
+CADMatch (rc_cadmatch, Section \ref{cadmatch:sect-cadmatch})  provides
+an object detection solution for 3D objects.
+
+CollisionCheck (rc_collision_check, Section \ref{collisioncheck:sect-
+collision})  provides an easy way to check if a gripper is in
+collision with load carrier.
+
+The
+
+rc_cube
+
+ provides some common functionalities which are used in multiple
+optional software components. The common functionalities are:
+
+Load carrier functionality\:(Section \ref{loadcarrier:sect-
+loadcarrier})  allows setting and retrieving load carriers, as well as
+detecting load carriers and their filling level.
+
+Region of interest functionality\:(Section \ref{roi:sect-roi})  allows
+setting and retrieving 3D regions of interest.
+
