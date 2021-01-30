@@ -1,0 +1,18 @@
+Messprinzipien
+
+Der
+
+rc_cube
+
+ wird zusammen mit der 3D-Kamera
+
+rc_visard
+
+ von Roboception betrieben und dient als performantes 3D-
+Bildverarbeitungssystem. Gemeinsam erstellen und verarbeiten sie
+rektifizierte Bilder, sowie Disparitäts-, Konfidenz- und Fehlerbilder,
+mit denen sich die Tiefenwerte der Aufnahme berechnen lassen.
+
+Im Folgenden sind die zugrunde liegenden Messprinzipien genauer
+dargestellt.
+

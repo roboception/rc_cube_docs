@@ -1,0 +1,18 @@
+Measurement principles
+
+The
+
+rc_cube
+
+ is a high-performance 3D-image-processing device that is used in
+combination with Roboception's 3D camera
+
+rc_visard
+
+. Together, they provide rectified camera, disparity, confidence, and
+error images, which allow the viewed scene's depth values along with
+their uncertainties to be computed.
+
+In the following, the underlying measurement principles are explained
+in more detail.
+
