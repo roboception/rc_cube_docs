@@ -1,0 +1,47 @@
+Overview
+
+The
+
+rc_cube
+
+ is a high-performance 3D-image-processing device that is developed to
+enhance the computing capabilities of the Roboception stereo-camera
+
+rc_visard
+
+.
+
+The
+
+rc_cube
+
+ provides real-time camera images and disparity images, which can also
+be used to compute depth images and 3D point clouds. Additionally, it
+provides confidence and error images as quality measures for each
+image acquisition. It offers an intuitive web UI (user interface) and
+a standardized GenICam interface, making it compatible with all major
+image processing libraries.
+
+With optionally available software modules the
+
+rc_cube
+
+ provides out-of-the-box solutions for object detection and robotic
+pick-and-place applications.
+
+
+Note: Unless specified, the information provided in this manual
+  applies to both the
+
+  rc_visard
+
+   65 and
+
+  rc_visard
+
+   160 versions of the Roboception sensor.
+
+
+Note: This manual uses the metric system and mostly uses the units
+  meter and millimeter. Unless otherwise specified, all dimensions in
+  technical drawings are in millimeters.
