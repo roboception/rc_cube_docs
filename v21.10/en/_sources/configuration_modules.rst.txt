@@ -1,0 +1,32 @@
+Configuration modules
+
+The
+
+rc_cube
+
+ provides several configuration modules which enable the user to
+configure the
+
+rc_cube
+
+ for specific applications.
+
+The configuration modules are:
+
+Hand-eye calibration (rc_hand_eye_calibration, Section
+\ref{handeye_calibration:sect-handeye-calibration})  enables the user
+to calibrate the camera with respect to a robot, either via the Web
+GUI or the REST-API.
+
+Region of interest\:(Section \ref{roi:sect-roi})  allows setting and
+retrieving 2D and 3D regions of interest.
+
+CollisionCheck (rc_collision_check, Section \ref{collisioncheck:sect-
+collision})  allows setting and retrieving grippers and provides an
+easy way to check if a gripper is in collision.
+
+IO and Projector Control (rc_iocontrol, Section \ref{iocontrol:sect-
+iocontrol})  provides control over the rc_visard's general purpose
+inputs and outputs with special modes for controlling an external
+random dot projector.
+
