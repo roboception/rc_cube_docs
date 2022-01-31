@@ -1,0 +1,289 @@
+Web GUI
+
+Die Web GUI des
+
+rc_cube
+
+ dient dazu, das Gerät zu testen, zu kalibrieren und zu konfigurieren.
+
+Zugriff auf die Web GUI
+
+Auf die Web GUI kann über die IP-Adresse des
+
+rc_cube
+
+ von jedem Webbrowser aus zugegriffen werden, z.B. Firefox, Google
+Chrome oder Microsoft Edge. Am einfachsten lässt sich die Web GUI über
+die "rcdiscover-gui" aufrufen, wenn, wie in
+
+Aufspüren von rc_cube-Geräten
+
+ beschrieben, ein Doppelklick auf das gewünschte Gerät vorgenommen
+wird.
+
+Alternativ konfigurieren einige Netzwerkumgebungen den eindeutigen
+Host-Namen des
+
+rc_cube
+
+ automatisch in ihrem Domain Name Server (
+
+DNS
+
+). In diesem Fall kann die Web GUI auch direkt über folgende
+
+URL
+
+ aufgerufen werden: "http://<host-name>", wobei der Platzhalter
+"<host-name>" gegen den Host-Namen des Geräts auszutauschen ist.
+
+Für Linux und macOS funktioniert das ohne DNS über das Multicast-DNS-
+Protokoll (
+
+mDNS
+
+), das automatisch aktiviert wird, wenn ".local" zum Host-Namen
+hinzugefügt wird. So wird die URL einfach zu: "http://<host-
+name>.local".
+
+Zugriff auf die rc_visard Web GUI
+
+Zur Fehlersuche oder Störungsbehebung können Nutzer auch direkt auf
+die Web GUI des mit dem
+
+rc_cube
+
+ verbundenen
+
+rc_visard
+
+ zugreifen. Diese ist für einen
+
+rc_visard
+
+ in Kamerapipeline 0 unter dem Port "2342" des
+
+rc_cube
+
+ und damit unter der
+
+URL
+
+ "http://<host>:2342" erreichbar, wobei "<host>" durch die IP-Adresse
+bzw. den Host-Namen des
+
+rc_cube
+
+ zu ersetzen ist, an den der
+
+rc_visard
+
+ angeschlossen ist. Für Kamerapipelines 1, 2 und 3 kann die Seite
+unter "http://<host>:2343", "http://<host>:2344", bzw.
+"http://<host>:2345" erreicht werden.
+
+So kann zum Beispiel auf die Geräteinformationen und Log-Dateien des
+
+rc_visard
+
+ zugegriffen werden.
+
+Bemerkung: Für den Fall, dass ein Computer-Bildschirm an den
+
+  rc_cube
+
+   angeschlossen ist, zeigt dieser die Web GUI mit einem kleinen
+  zusätzlichen Menü an, über welches auch die
+
+  rc_visard
+
+   Web GUI zu erreichen ist.
+
+Kennenlernen der Web GUI
+
+Die Dashboard-Seite der Web GUI enthält die wichtigsten Informationen
+über das Gerät und die laufenden Kamerapipelines.
+
+
+Über das Menü kann auf die einzelnen Seiten der Web GUI des
+
+rc_cube
+
+ zugegriffen werden:
+
+Pipeline
+
+   ermöglicht den Zugriff auf die zugehörige Kamerapipeline und ihre
+   Kamera-, Detektions- und Konfigurationsmodule. Jede Pipeline hat
+   eine Übersichtsseite mit den wichtigsten Informationen über die
+   Kameraverbindung und die Softwaremodule, die in der Pipeline
+   laufen.
+
+
+Jede Pipeline bietet ein Untermenü mit den einzelnen Seiten für die
+Module, die in der Pipeline laufen:
+
+Kamera
+
+   zeigt einen Live-Stream der rektifizierten Kamerabilder. Die
+   Bildwiederholrate lässt sich reduzieren, um Bandbreite zu sparen,
+   wenn über einen GigE Vision®-Client gestreamt wird. Außerdem lässt
+   sich die Belichtung manuell oder automatisch einstellen. Für nähere
+   Informationen siehe
+
+   Parameter
+
+   .
+
+Tiefenbild
+
+   bietet einen Live-Stream der rektifizierten Bilder der linken
+   Kamera sowie Disparitäts- und Konfidenzbilder. Auf der Seite lassen
+   sich verschiedene Einstellungen zur Berechnung und Filterung von
+   Tiefenbildern vornehmen. Für nähere Informationen siehe
+
+   Parameter
+
+   .
+
+Module
+
+   ermöglicht den Zugriff auf die Detektionsmodule des
+
+   rc_cube
+
+    (siehe
+
+   Detektionsmodule
+
+   ).
+
+Konfiguration
+   ermöglicht den Zugriff auf die Konfigurationsmodule des
+
+   rc_cube
+
+    (siehe
+
+   Konfigurationsmodule
+
+   ).
+
+Die folgenden Module laufen außerhalb der Kamerapipelines und können
+über das Menü erreicht werden:
+
+Datenbank
+
+   ermöglicht den Zugriff auf die Datenbankmodule des
+
+   rc_cube
+
+    (siehe
+
+   Datenbankmodule
+
+   ).
+
+System
+
+   ermöglicht dem Nutzer den Zugriff auf allgemeine
+   Systemeinstellungen, Informationen zum Gerät und den Log-Dateien,
+   sowie die Möglichkeit, die Firmware oder Lizenzdatei zu
+   aktualisieren.
+
+UserSpace
+
+   ermöglicht den Zugriff auf den UserSpace des
+
+   rc_cube
+
+    (siehe
+
+   UserSpace
+
+   ).
+
+Bemerkung: Weitere Informationen zu den einzelnen Parametern der Web
+  GUI lassen sich über die jeweils daneben angezeigte Schaltfläche
+
+  Info
+
+   aufrufen.
+
+Herunterladen von Kamerabildern
+
+Die Web GUI bietet eine einfache Möglichkeit, einen Schnappschuss der
+aktuellen Szene als .tar.gz-Datei zu speichern. Dazu dient das
+Kamerasymbol unterhalb der Live-Streams auf der Seite
+
+Kamera
+
+. Dieser Schnappschuss beinhaltet:
+
+die rektifizierten Kamerabilder in voller Auflösung als .png-Dateien,
+
+eine Kameraparameter-Datei mit Kameramatrix, Bildabmessungen,
+Belichtungszeit, Verstärkungsfaktor und Basisabstand der Kameras.
+
+die aktuellen IMU-Messungen als imu.csv-Datei, falls verfügbar,
+
+eine pipeline_status.json-Datei mit Informationen aller Module, die
+innerhalb der Kamerapipelines auf dem rc_cube laufen,
+
+eine backup.json-Datei mit den Einstellungen des rc_cube
+einschließlich konfigurierter Greifer, Load Carrier und Regions of
+Interest,
+
+eine system_info.json-Datei mit Systeminformationen des rc_cube.
+
+Die Dateinamen enthalten die Zeitstempel.
+
+Herunterladen von Tiefenbildern und Punktwolken
+
+Die Web GUI bietet eine einfache Möglichkeit, die Tiefendaten der
+aktuellen Szene als .tar.gz-Datei zu speichern. Dazu dient das
+Kamerasymbol unterhalb der Live-Streams auf der Seite
+
+Tiefenbild
+
+. Dieser Schnappschuss beinhaltet:
+
+die rektifizierten linken und rechten Kamerabilder in voller Auflösung
+als .png-Dateien,
+
+eine Parameterdatei für das linke Kamerabild mit Kameramatrix,
+Bildabmessungen, Belichtungszeit, Verstärkungsfaktor und Basisabstand
+der Kameras,
+
+die Disparitäts-, Fehler- und Konfidenzbilder in der Auflösung, die
+der aktuell eingestellten Qualität entspricht, als .png-Dateien,
+
+eine Parameterdatei zum Disparitätsbild mit Kameramatrix,
+Bildabmessungen, Belichtungszeit, Verstärkungsfaktor und Basisabstand
+der Kameras, sowie Informationen über die Disparitätswerte (ungültige
+Werte, Skalierung, Offset),
+
+eine Punktwolke in der aktuell eingestellten Auflösung (Qualität) as
+.ply-Datei,
+
+die aktuellen IMU-Messungen als imu.csv-Datei, falls verfügbar,
+
+eine pipeline_status.json-Datei mit Informationen aller Module, die
+innerhalb der Kamerapipelines auf dem rc_cube laufen,
+
+eine backup.json-Datei mit den Einstellungen des rc_cube
+einschließlich konfigurierter Greifer, Load Carrier und Regions of
+Interest,
+
+eine system_info.json-Datei mit Systeminformationen des rc_cube.
+
+Die Dateinamen enthalten die Zeitstempel.
+
+Bemerkung: Das Herunterladen der Tiefenbilder löst eine Bildaufnahme
+  aus, in der gleichen Weise wie ein Klick auf den "Aufnehmen"-Button
+  auf der
+
+  Tiefenbild
+
+  -Seite der Web GUI. Dies kann einen Einfluss auf laufende
+  Anwendungen haben.
