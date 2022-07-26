@@ -1,0 +1,131 @@
+Überblick
+
+Der
+
+rc_cube
+
+ ist ein Gerät zur performanten 3D-Bildverarbeitung. Es erweitert die
+Rechenkapazitäten der Roboception Stereokamera
+
+rc_visard
+
+ und unterstützt die Basler blaze Kamera in der RGB-D Variante und den
+
+rc_viscore
+
+.
+
+Informationen zu den unterstützten Geräten wird bereitgestellt unter
+
+rc_visard: https://doc.rc-visard.com
+
+rc_viscore: https://doc.rc-viscore.com
+
+blaze: https://www.baslerweb.com/de/produkte/kameras/3d-kameras/blaze-
+rgb-d/.
+
+Bemerkung: Sofern nicht anders angegeben, gelten die in diesem
+  Handbuch enthaltenen Informationen für beide Versionen des
+  Roboception- Sensors, d.h. für den
+
+  rc_visard
+
+   65 und den
+
+  rc_visard
+
+   160.
+
+Bemerkung: Der Begriff "blaze" steht in diesem Handbuch immer für
+  die Basler blaze Kamera in der RGB-D Variante, d.h. eine Kombination
+  aus der blaze Time-of-Flight Kamera und der Basler aceA1300
+  Farbkamera.
+
+Der
+
+rc_cube
+
+ stellt Echtzeit-Kamerabilder und Tiefenbilder bereit, die zur
+Berechnung von 3D-Punktwolken verwendet werden können. Zudem erstellt
+er Konfidenz- und Fehlerbilder, mit denen sich die Qualität der
+Bilderfassung messen lässt. Dank der standardisierten GenICam-
+Schnittstelle ist er mit allen großen Bildverarbeitungsbibliotheken
+kompatibel und bietet darüber hinaus eine intuitive, web-basierte
+Bedienoberfläche an.
+
+Mit optional erhältlichen Softwaremodulen bietet der
+
+rc_cube
+
+ Standardlösungen für Anwendungen in der Objekterkennung oder für
+robotische Pick-and-Place-Applikationen.
+
+Der
+
+rc_cube
+
+ ist in zwei Varianten erhältlich:
+
+rc_cube S
+
+ und
+
+rc_cube I
+
+.
+
+Der
+
+rc_cube S
+
+ ist geeignet für Forschung, Entwicklung und Testumgebungen. Er
+unterstützt einen
+
+rc_visard
+
+ ohne zusätzliche Hardware. Über einen separaten 2.5Gbit Switch (nicht
+enthalten) können zwei
+
+rc_visard
+
+ Sensoren zur gleichen Zeit betrieben werden, oder ein
+
+rc_viscore
+
+ oder ein Basler blaze Sensor angeschlossen werden.
+
+Der
+
+rc_cube I
+
+ ist für den produktiven Gebrauch in industriellen Umgebungen
+vorgesehen. Er unterstützt vier
+
+rc_visard
+
+ Kameras, oder zwei
+
+rc_viscore
+
+ oder Basler blaze Sensoren ohne zusätzliche Hardware.
+
+
+Bemerkung: Sofern nicht anders angegeben, gelten die in diesem
+  Handbuch enthaltenen Informationen für beide Versionen des
+
+  rc_cube
+
+  , d.h. für den
+
+  rc_cube S
+
+   und den
+
+  rc_cube I
+
+  .
+
+Bemerkung: Das vorliegende Handbuch nutzt das metrische System und
+  verwendet vorrangig die Maßeinheiten Meter und Millimeter. Sofern
+  nicht anders angegeben, sind Abmessungen in technischen Zeichnungen
+  in Millimetern angegeben.

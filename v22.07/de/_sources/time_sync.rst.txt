@@ -1,0 +1,79 @@
+Zeitsynchronisierung
+
+Der
+
+rc_cube
+
+ stellt für alle Bilder und Nachrichten Zeitstempel zur Verfügung. Um
+diese mit der Zeit auf dem Applikations-Rechner zu vergleichen, muss
+die Zeit synchronisiert werden.
+
+Die Synchronisierung der Systemzeiten auf dem
+
+rc_cube
+
+ und dem Anwendungsrechner kann über das Network Time Protocol (NTP)
+erfolgen, welches standardmäßig aktiviert ist.
+
+Die interne Synchronisierung der Systemzeiten zwischen dem
+
+rc_cube
+
+ und der angeschlossenen Kamera wird automatisch über das Precision
+Time Protocol (PTP) vorgenommen.
+
+Die aktuelle Systemzeit sowie der Status der Zeitsynchronisierung
+können über die
+
+REST-API
+
+ abgerufen und darüber hinaus auch in der
+
+Web GUI
+
+ auf der Seite
+
+System
+
+ eingesehen werden.
+
+Bemerkung: Abhängig von der Erreichbarkeit von NTP- oder PTP-
+  Servern, kann es bis zu mehreren Minuten dauern, bis die Zeit
+  synchronisiert ist.
+
+NTP
+
+Das Network Time Protocol (NTP) ist ein TCP/IP Protokoll um Zeit über
+ein Netzwerk zu synchronisieren. Im Wesentlichen fordert ein Client
+die aktuelle Zeit periodisch von einem Server an und nutzt diese, um
+seine eigene Uhr zu stellen bzw. zu korrigieren.
+
+Standardmäßig versucht der
+
+rc_cube
+
+ den NTP-Server des NTP-Pool-Projekts zu erreichen, wozu eine
+Verbindung zum Internet nötig ist.
+
+Falls die Netzwerkkonfiguration des
+
+rc_cube
+
+ auf
+
+DHCP
+
+ (entspricht der Werkseinstellung) konfiguriert ist, werden NTP-Server
+auch vom DHCP-Server angefordert und verwendet.
+
+PTP
+
+Das Precision Time Protocol (PTP, auch als IEEE1588 bekannt) ist ein
+Protokoll, welches eine genauere und robustere Synchronisation der
+Uhren erlaubt als NTP.
+
+Bemerkung: Die Synchronisierung der Systemzeit zwischen dem
+
+  rc_cube
+
+   und dem Anwendungsrechner ist nur über NTP möglich.
