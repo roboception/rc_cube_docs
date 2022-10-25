@@ -1,0 +1,131 @@
+Overview
+
+The
+
+rc_cube
+
+ is a high-performance 3D-image-processing device. It enhances the
+computing capabilities of the Roboception stereo camera
+
+rc_visard
+
+ and supports the Basler blaze camera in an RGB-D setup and the
+
+rc_viscore
+
+.
+
+Information about the supported devices are provided in
+
+rc_visard: https://doc.rc-visard.com
+
+rc_viscore: https://doc.rc-viscore.com
+
+blaze: https://www.baslerweb.com/en/products/cameras/3d-cameras/blaze-
+rgb-d.
+
+Note: Unless specified, the information provided in this manual
+  applies to both the
+
+  rc_visard
+
+   65 and
+
+  rc_visard
+
+   160 versions of the Roboception
+
+  rc_visard
+
+   sensor.
+
+Note: The term "blaze" used throughout the manual always refers to
+  the Basler blaze camera in an RGB-D setup, i.e. the blaze Time-of-
+  Flight camera in combination with the Basler aceA1300 color camera.
+
+The
+
+rc_cube
+
+ provides real-time camera images and depth images, which can be used
+to compute 3D point clouds. Additionally, it provides confidence and
+error images as quality measures for each image acquisition. It offers
+an intuitive web UI (user interface) and a standardized GenICam
+interface, making it compatible with all major image processing
+libraries.
+
+With optionally available software modules the
+
+rc_cube
+
+ provides out-of-the-box solutions for object detection and robotic
+pick-and-place applications.
+
+The
+
+rc_cube
+
+ is offered in two versions:
+
+rc_cube S
+
+ and
+
+rc_cube I
+
+.
+
+The
+
+rc_cube S
+
+ is suitable for research, development and testing environments. It
+supports one
+
+rc_visard
+
+ without additional hardware. A separate 2.5Gbit switch (not part of
+the product scope) enables the support of two
+
+rc_visard
+
+ devices at a time or allows to connect an
+
+rc_viscore
+
+ or a Basler blaze device.
+
+The
+
+rc_cube I
+
+ is intended for operational use in an industrial environment. It
+supports four
+
+rc_visard
+
+ cameras, or two
+
+rc_viscore
+
+ or Basler blaze devices without additional hardware.
+
+
+Note: Unless specified, the information provided in this manual
+  applies to both the
+
+  rc_cube S
+
+   and
+
+  rc_cube I
+
+   versions of the
+
+  rc_cube
+
+  .
+
+Note: This manual uses the metric system and mostly uses the units
+  meter and millimeter. Unless otherwise specified, all dimensions in
+  technical drawings are in millimeters.

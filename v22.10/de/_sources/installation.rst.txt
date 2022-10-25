@@ -1,0 +1,513 @@
+Installation
+
+Warnung: Vor Installation des Gerätes müssen die Hinweise zur
+
+  Sicherheit
+
+   des
+
+  rc_cube
+
+   gelesen und verstanden werden.
+
+Der
+
+rc_cube
+
+ verfügt über mehrere Gigabit-Ethernet-Schnittstellen:
+
+Eine mit "external" beschriftete Schnittstelle für den Anschluss an
+ein Computernetzwerk, und
+
+bis zu vier mit "sensor<N>" beschriftete Schnittstellen für den
+Anschluss einer oder mehrerer 3D-Kameras, wie den rc_visard oder
+rc_viscore oder den Basler blaze Sensor (siehe Anschluss von Kameras,
+Abschnitt \ref{installation:sect-camera-connection}).
+
+Alle anderen Ethernet-Schnittstellen sind deaktiviert.
+
+Für die Inbetriebnahme, bzw. während des Betriebs oder zur
+Fehlerbehandlung, können Eingabegeräte wie Maus und Tastatur sowie ein
+Computerbildschirm an den
+
+rc_cube
+
+ angeschlossen werden. Dies ist jedoch nur optional, denn über das
+verbundene, lokale Netzwerk kann der Nutzer auf alle Funktionalitäten
+des
+
+rc_cube
+
+ zugreifen.
+
+Bemerkung: Wenn ein Bildschirm am
+
+  rc_cube
+
+   verwendet werden soll, dann muss er bereits beim Booten verbunden
+  sein, oder der
+
+  rc_cube
+
+   muss neu gestartet werden, um den Bildschirm zu aktivieren.
+
+Softwarelizenz
+
+Jeder
+
+rc_cube
+
+ wird mit einem USB-Dongle zur Lizenzierung und zum Schutz der
+installierten Softwarepakete ausgeliefert. Die erworbenen Lizenzen
+sind auf diesem Dongle installiert und somit an ihn und seine ID
+gebunden.
+
+Die Funktionalität des
+
+rc_cube
+
+ kann jederzeit durch ein
+
+Upgrade der Lizenz
+
+ erweitert werden -- zum Beispiel für zusätzlich erhältliche,
+optionale Softwaremodule.
+
+Bemerkung: Der
+
+  rc_cube
+
+   muss neu gestartet werden, sobald die Softwarelizenz geändert
+  wurde.
+
+Bemerkung: Der Status der Softwarelizenz kann über die verschiedenen
+  Schnittstellen des
+
+  rc_cube
+
+   abgefragt werden, zum Beispiel über die Seite System ‣ Firmware &
+  Lizenz in der
+
+  Web GUI
+
+  .
+
+Bemerkung: Damit die Lizenzierung der Softwaremodule ordnungsgemäß
+  funktioniert, muss der USB-Dongle an den
+
+  rc_cube
+
+   angesteckt werden, bevor dieser gestartet wird.
+
+Bemerkung: Der
+
+  rc_cube
+
+   muss neu gestartet werden, sobald der Dongle eingesteckt oder
+  abgezogen wurde.
+
+Einschalten
+
+Bemerkung: Der
+
+  rc_cube I
+
+   wird nicht mit einer Stromversorgung ausgeliefert. Ein separates
+  24V/20Amp (z.B. Hutschienen-) Netzteil wird benötigt.
+
+Der
+
+rc_cube
+
+ wird mit der Einschalttaste am Gerät gestartet. Ist ein
+Computerbildschirm angeschlossen, zeigt dieser die Web GUI an, sobald
+der Boot-Vorgang des
+
+rc_cube
+
+ abgeschlossen ist.
+
+Bemerkung: Zur Gewährleistung eines erfolgreichen Betriebs stellen
+  Sie sicher, dass der mit dem
+
+  rc_cube
+
+   verbundene
+
+  rc_visard
+
+   mit Strom versorgt und dessen Boot-Vorgang abgeschlossen ist.
+
+Aufspüren von rc_cube-Geräten
+
+Roboception-
+
+rc_cube
+
+-Geräte, die eingeschaltet und mit dem lokalen Netzwerk oder direkt
+mit einem Computer verbunden sind, können über den Discover-
+Mechanismus von GigE Vision® ausfindig gemacht werden.
+
+Das Open-Source-Tool "rcdiscover-gui" kann für Windows und Linux
+kostenlos von der Roboception-Homepage heruntergeladen werden:
+
+http://www.roboception.com/download
+
+. Dieses Tool besteht für Windows 7 und Windows 10 aus einer einzigen
+ausführbaren Datei, die ohne Installation direkt ausgeführt werden
+kann. Für Linux ist ein Installationspaket für Ubuntu erhältlich.
+
+Nach dem Start wird jedes verfügbare GigE Vision®-Gerät, und damit
+auch jeder verfügbare
+
+rc_cube
+
+, mit seinem Namen, seiner Seriennummer, der aktuellen IP-Adresse und
+der eindeutigen MAC-Adresse aufgelistet. Das Discovery-Tool findet
+alle Geräte, die sich über globale Broadcasts erreichen lassen. Es
+kann vorkommen, dass falsch konfigurierte Geräte aufgeführt werden,
+die anderen Subnetzen als dem des Computers angehören. Ein Häkchen im
+Discovery-Tool gibt an, ob ein Gerät richtig konfiguriert und damit
+auch über einen Webbrowser erreichbar ist.
+
+
+Wurde das Gerät erfolgreich gefunden, öffnet sich nach einem
+Doppelklick auf den Geräteeintrag die
+
+Web GUI
+
+ des Geräts im Standard-Browser des Betriebssystems. Wir empfehlen,
+Google Chrome oder Mozilla Firefox als Webbrowser zu verwenden.
+
+Zurücksetzen der Konfiguration
+
+Bemerkung: Der Rücksetzmechanismus des "rcdiscover-gui"-Tools ist
+  für
+
+  rc_cube
+
+  -Geräte im Moment nicht implementiert.
+
+Netzwerkkonfiguration
+
+Für die Kommunikation mit anderen Netzwerkgeräten muss dem
+
+rc_cube
+
+ eine Internet-Protokoll-Adresse (
+
+IP
+
+) zugewiesen werden. Jede IP-Adresse darf innerhalb des lokalen
+Netzwerks nur einmal vergeben werden. Sie kann entweder manuell
+mittels einer durch den Nutzer zugewiesenen persistenten (d.h.
+statischen) IP-Adresse festgelegt oder automatisch per
+
+DHCP
+
+ zugewiesen werden. Ist keine der Methoden verfügbar oder aktiviert,
+greift der
+
+rc_cube
+
+ auf eine
+
+Link-Local
+
+-Adresse zurück.
+
+Die Netzwerkeinstellungen des
+
+rc_visard
+
+, welcher mit dem
+
+rc_cube
+
+ zusammen betrieben wird, werden automatisch passend konfiguriert,
+sobald der
+
+rc_visard
+
+ mit dem
+
+rc_cube
+
+ verbunden wird.
+
+Warnung: Um Adresskonflikte mit dem internen Netzwerk zwischen dem
+
+  rc_cube
+
+   und dem verbundenen
+
+  rc_visard
+
+   zu vermeiden, muss die für den
+
+  rc_cube
+
+   gewählte IP-Adresse außerhalb des Adressbereichs "172.23.42.0/24"
+  und "172.17.0.0/16" liegen.
+
+Nach dem
+
+GigE Vision
+
+®-Standard wird die Konfiguration der IP-Adresse in folgender
+Priorität und Reihenfolge durchgeführt:
+
+   Persistente IP (falls aktiviert)
+
+   DHCP (falls aktiviert)
+
+   Link-Local
+
+
+Zur Konfiguration der Netzwerkeinstellungen und IP-Adresse des
+
+rc_cube
+
+ stehen folgende Möglichkeiten zur Verfügung:
+
+   die Seite System ‣ Netzwerk der rc_cube-Web GUI -- falls diese im
+   lokalen Netzwerk bereits erreichbar ist, siehe Web GUI\:(Abschnitt
+   \ref{webgui:sect-web-gui})
+
+   alle Konfigurationsprogramme, welche mit GigE Vision® 2.0
+   kompatibel sind, oder das Roboception Kommandozeilenprogramm
+   gc_config. Üblicherweise wird nach dem Start dieser Programme das
+   Netzwerk nach allen verfügbaren GigE Vision®-Sensoren durchsucht.
+   Alle rc_cube-Geräte können über ihre Seriennummer und MAC-Adresse,
+   die beide auf dem Gerät aufgedruckt sind, eindeutig identifiziert
+   werden.
+
+   das Roboception rcdiscover-gui-Tool, welches temporäre Änderungen
+   oder das vollständige Zurücksetzen der Netzwerkkonfiguration des
+   rc_cube erlaubt, siehe Aufspüren von rc_cube-Geräten\:(Abschnitt
+   \ref{installation:sect-discovery-of-rcvisard-devices})
+
+Bemerkung: Das Kommandozeilenprogramm "gc_config" ist Bestandteil
+  der Roboception Open-Source-Bibliothek "rc_genicam_api", welche
+  kostenlos für Windows und Linux von folgender Seite heruntergeladen
+  werden kann:
+
+  http://www.roboception.com/download
+
+  .
+
+Host-Name
+
+Der Host-Name des
+
+rc_cube
+
+ basiert auf dessen Seriennummer, welche auf dem Gerät aufgedruckt
+ist, und lautet "rc-cube-<serial number>".
+
+Automatische Konfiguration (werksseitige Voreinstellung)
+
+Für die Zuweisung von IP-Adressen wird bevorzugt auf
+
+DHCP
+
+ zugegriffen. Ist DHCP (werksseitige Voreinstellung auf dem
+
+rc_cube
+
+) aktiviert, versucht das Gerät, wann immer das Netzwerkkabel
+eingesteckt wird, einen DHCP-Server zu kontaktieren. Ist ein DHCP-
+Server im Netzwerk verfügbar, wird die IP-Adresse automatisch
+konfiguriert.
+
+In einigen Netzwerken ist der DHCP-Server so konfiguriert, dass
+lediglich bekannte Geräte akzeptiert werden. In diesem Fall muss die
+auf dem Gerät aufgedruckte „Media Access Control“-Adresse, kurz
+
+MAC-Adresse
+
+, im DHCP-Server konfiguriert werden. Zudem ist der ebenfalls
+aufgedruckte Host-Name des
+
+rc_cube
+
+ im Domain Name Server
+
+DNS
+
+ einzustellen. Sowohl die MAC-Adresse als auch der Host-Name sind zu
+Konfigurationszwecken an den Netzwerkadministrator zu übermitteln.
+
+Kann der
+
+rc_cube
+
+ nicht innerhalb von 15 Sekunden nach dem Einschalten bzw. dem
+Einstecken des Netzwerkkabels Kontakt zu einem DHCP-Server aufbauen,
+versucht er, sich selbst eine eindeutige IP-Adresse zuzuweisen. Dieser
+Prozess heißt
+
+Link-Local
+
+. Diese Option ist besonders nützlich, wenn der
+
+rc_cube
+
+ direkt an einen Computer angeschlossen werden soll. In diesem Fall
+muss auch der Computer mit einer Link-Local-Adresse konfiguriert sein.
+Bei manchen Betriebssystemen wie Windows 10 ist Link-Local bereits
+standardmäßig als Fallback eingestellt. Bei der Arbeit mit anderen
+Betriebssystemen, wie z.B. Linux, muss die Link-Local-Adresse direkt
+im Netzwerkmanager konfiguriert werden.
+
+Manuelle Konfiguration
+
+In einigen Fällen kann es nützlich sein, manuell eine persistente,
+d.h. statische IP-Adresse einzurichten. Diese wird auf dem
+
+rc_cube
+
+ gespeichert und beim Systemstart bzw. beim Verbindungswiederaufbau
+zugewiesen. Bitte stellen Sie sicher, dass die Einstellungen der IP-
+Adresse, der Subnetz-Maske und des Default-Gateway keine Konflikte im
+Netzwerk verursachen.
+
+Warnung: Die IP-Adresse muss eindeutig sein und innerhalb des
+  Gültigkeitsbereichs des lokalen Netzwerks liegen. Zudem muss die
+  Subnetz-Maske dem lokalen Netzwerk entsprechen, da anderenfalls
+  möglicherweise nicht auf den
+
+  rc_cube
+
+   zugegriffen werden kann. Dieses Problem lässt sich vermeiden, indem
+  die unter
+
+  Automatische Konfiguration (werksseitige Voreinstellung)
+
+   beschriebene automatische Konfiguration genutzt wird.
+
+Kann die gewählte IP-Adresse nicht zugewiesen werden, zum Beispiel
+weil ein anderes Gerät im lokalen Netzwerk diese bereits verwendet,
+wird auf die automatische IP-Konfiguration mittels
+
+DHCP
+
+ (falls aktiviert) oder
+
+Link-Local
+
+ zurückgegriffen.
+
+Anschluss von Kameras
+
+Abhängig vom Modell des
+
+rc_cube
+
+ können zwei oder mehr 3D Kameras an die Ethernet-Ports mit der
+Beschriftung
+
+sensor0
+
+,
+
+sensor1
+
+, etc. angeschlossen werden.
+
+Der
+
+rc_cube S
+
+ hat einen 2.5 Gigabit-Ethernet-Port für den Anschluss von bis zu zwei
+Sensoren, z.B.
+
+Anschluss eines rc_visard ohne zusätzliche Hardware
+
+Anschluss zweier rc_visard über einen separaten 2.5Gbit Switch
+
+Anschluss eines rc_viscore über einen separaten 2.5Gbit Switch
+
+Anschluss einer blaze über einen separaten 2.5Gbit Switch
+
+Der
+
+rc_cube I
+
+ hat vier 1 Gigabit-Ethernet-Ports für den Anschluss von bis zu vier
+Sensoren, z.B.
+
+Anschluss von bis zu vier rc_visard Sensoren ohne zusätzliche Hardware
+
+Anschluss von bis zu zwei rc_viscore Sensoren ohne zusätzliche
+Hardware
+
+Anschluss von bis zu zwei blaze Sensoren ohne zusätzliche Hardware
+
+Es können auch verschiedene 3D Kameras mit dem
+
+rc_cube
+
+ verbunden werden, so lange die Ethernetanschlüsse ausreichen. Jedoch
+unterstützt der
+
+rc_cube S
+
+ maximal zwei Sensoren zur gleichen Zeit, der
+
+rc_cube I
+
+ maximal vier.
+
+Warnung: Der
+
+  rc_viscore
+
+   oder der Basler blaze Sensor dürfen nicht über  einen Switch mit
+  1Gbit oder weniger angeschlossen werden, da das zu starkem
+  Bildverlust führt.
+
+Der
+
+rc_cube
+
+ bietet bis zu vier Software-Kamerapipelines für die Prozessierung der
+Daten der angeschlossenen Sensoren. Die Konfiguration der
+Kamerapipelines wird in
+
+Kamerapipelines
+
+ beschrieben.
+
+Basler blaze Sensoren
+
+Nach dem Anschluss eines Basler blaze Sensors kann es bis zu einer
+Minute dauern, bis dieser gefunden wird. Beim erstmaligen Anschluss an
+den
+
+rc_cube
+
+ ist der Sensor noch unkalibriert und muss kalibriert werden, bevor er
+verwendet werden kann. Die Kalibrierung erfolgt über die Web GUI auf
+der Seite
+
+Kamerakalibrierung
+
+ unter
+
+Konfiguration
+
+ in der entsprechenden Pipeline. Sobald die Kalibrierung gespeichert
+wurde, verbleibt sie permanent auf dem
+
+rc_cube
+
+ und wird automatisch angewendet, wenn der
+
+blaze
+
+ Sensor wieder mit dem
+
+rc_cube
+
+ verbunden wird, unabhängig von Port und Kamerapipeline.
