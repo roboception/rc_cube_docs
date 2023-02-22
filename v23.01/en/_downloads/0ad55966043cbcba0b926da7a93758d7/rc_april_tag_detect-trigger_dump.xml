@@ -15,8 +15,8 @@
       <ELEMENT Tag="req/node/rc_april_tag_detect" Type="STRING"/>
       <ELEMENT Tag="req/service/trigger_dump" Type="STRING"/>
       <ELEMENT Tag="req/args/comment" Type="STRING"/>
-      <ELEMENT Tag="req/args/timestamp/@nsec" Type="INT"/>
       <ELEMENT Tag="req/args/timestamp/@sec" Type="INT"/>
+      <ELEMENT Tag="req/args/timestamp/@nsec" Type="INT"/>
       <ELEMENT Tag="req/end_of_request" Type="BOOL"/>
     </XML>
   </SEND>
