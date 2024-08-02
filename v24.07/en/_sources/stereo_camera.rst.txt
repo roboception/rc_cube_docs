@@ -128,6 +128,98 @@ float64  1.0  1.0  1.0  Red to green balance ratio if wb_auto is false
 Description of run-time parameters
 
 
+acquisition_mode (Acquisition Mode)
+
+   This values determines the camera acquisition mode. In "Continuous"
+   mode, the camera will acquire images at the specified frame rate
+   "fps". In "Trigger" mode, images are only acquired when the camera
+   receives a trigger signal.
+
+   Note: This parameter only has an effect when used in a pipeline
+     with an
+
+     rc_viscore
+
+      or
+
+     rc_visard NG
+
+     .
+
+   Via the REST-API, this parameter can be set as follows.
+
+   API version 2
+
+      PUT http://<host>/api/v2/pipelines/0/nodes/rc_camera/services/parameters?acquisition_mode=<value>
+
+   API version 1 (deprecated)
+
+      PUT http://<host>/api/v1/nodes/rc_camera/parameters?acquisition_mode=<value>
+
+trigger_source (Trigger Source)
+
+   This value is only used when "acquisition_mode" is set to "Trigger"
+   and determines the source for the trigger. In "Software" mode a
+   trigger can be sent via the "rc_camera/acquisition_trigger"
+   service. When the "acquisition_mode" for the depth images is set to
+   "SingleFrame" or "SingleFrameOut1" (see
+
+   Parameters
+
+   ), the camera software trigger is sent automatically whenever a
+   depth image acquisition is triggered. The modes "In1" and "In2" are
+   hardware trigger modes. An image is acquired whenever a signal on
+   the chosen input is received.
+
+   Note: This parameter only has an effect when used in a pipeline
+     with an
+
+     rc_viscore
+
+      or
+
+     rc_visard NG
+
+     .
+
+   Via the REST-API, this parameter can be set as follows.
+
+   API version 2
+
+      PUT http://<host>/api/v2/pipelines/0/nodes/rc_camera/services/parameters?trigger_source=<value>
+
+   API version 1 (deprecated)
+
+      PUT http://<host>/api/v1/nodes/rc_camera/parameters?trigger_source=<value>
+
+trigger_activation (Trigger Activation)
+
+   This value is only used when "acquisition_mode" is set to "Trigger"
+   and "trigger_source" is set to "In1" or "In2". It determines the
+   signal edge that should be used to trigger an acquisition. Possible
+   values are "RisingEdge", "FallingEdge" or "AnyEdge".
+
+   Note: This parameter only has an effect when used in a pipeline
+     with an
+
+     rc_viscore
+
+      or
+
+     rc_visard NG
+
+     .
+
+   Via the REST-API, this parameter can be set as follows.
+
+   API version 2
+
+      PUT http://<host>/api/v2/pipelines/0/nodes/rc_camera/services/parameters?trigger_activation=<value>
+
+   API version 1 (deprecated)
+
+      PUT http://<host>/api/v1/nodes/rc_camera/parameters?trigger_activation=<value>
+
 fps (FPS)
 
    This value is the cameras' frame rate (fps, frames per second),

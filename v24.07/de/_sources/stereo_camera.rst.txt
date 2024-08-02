@@ -133,6 +133,108 @@ Verhältnis, falls wb_auto auf false gesetzt ist (nur für Farbkameras)
 Beschreibung der Laufzeitparameter
 
 
+acquisition_mode (Aufnahmemodus)
+
+   Dieser Wert bestimmt den Aufnahmemodus der Kamera. Im Modus
+
+   Kontinuierlich
+
+    ("Continuous") nimmt die Kamera Bilder mit der in "fps"
+   angegebenen Bildwiederholrate auf. Im Modus
+
+   Trigger
+
+    ("Trigger") werden nur Bilder aufgenommen, wenn die Kamera ein
+   Triggersignal empfängt.
+
+   Bemerkung: Dieser Parameter hat nur eine Auswirkung, wenn er in
+     einer Pipeline mit einem
+
+     rc_viscore
+
+      oder
+
+     rc_visard NG
+
+      verwendet wird.
+
+   Über die REST-API kann dieser Parameter wie folgt gesetzt werden.
+
+   API Version 2
+
+      PUT http://<host>/api/v2/pipelines/0/nodes/rc_camera/services/parameters?acquisition_mode=<value>
+
+   API Version 1 (veraltet)
+
+      PUT http://<host>/api/v1/nodes/rc_camera/parameters?acquisition_mode=<value>
+
+trigger_source (Triggerquelle)
+
+   Dieser Wert wird nur verwendet, wenn der Aufnahmemodus auf
+   "Trigger" gesetzt ist und bestimmt die Triggerquelle. Im
+   "Software"-Modus kann ein Trigger über den
+   "rc_camera/acquisition_trigger" Service gesendet werden. Wenn der
+   Aufnahmemodus "acquisition_mode" für die Tiefenbilder auf
+   "SingleFrame" oder "SingleFrameOut1" gesetzt ist (siehe
+
+   Parameter
+
+   ), wird der Kamera-Softwaretrigger automatisch bei jeder
+   Tiefenbildaufnahme gesendet. Die Modi "In1" und "In2" sind
+   Hardwaretriggermodi. Ein Bild wird aufgenommen, sobald ein Signal
+   auf dem jeweiligen Eingang empfangen wird.
+
+   Bemerkung: Dieser Parameter hat nur eine Auswirkung, wenn er in
+     einer Pipeline mit einem
+
+     rc_viscore
+
+      oder
+
+     rc_visard NG
+
+      verwendet wird.
+
+   Über die REST-API kann dieser Parameter wie folgt gesetzt werden.
+
+   API Version 2
+
+      PUT http://<host>/api/v2/pipelines/0/nodes/rc_camera/services/parameters?trigger_source=<value>
+
+   API Version 1 (veraltet)
+
+      PUT http://<host>/api/v1/nodes/rc_camera/parameters?trigger_source=<value>
+
+trigger_activation (Triggeraktivierung)
+
+   Dieser Wert wird nur verwendet, wenn der Aufnahmemodus auf
+   "Trigger" gesetzt ist und die Triggerquelle auf "In1" oder "In2"
+   steht. Er bestimmt die Signalflanke, die genutzt werden soll, um
+   eine Bildaufnahme auszulösen. Mögliche Werte sind "RisingEdge"
+   (steigende Flanke), "FallingEdge" (fallende Flanke) oder "AnyEdge"
+   (steigende und fallende Flanke).
+
+   Bemerkung: Dieser Parameter hat nur eine Auswirkung, wenn er in
+     einer Pipeline mit einem
+
+     rc_viscore
+
+      oder
+
+     rc_visard NG
+
+      verwendet wird.
+
+   Über die REST-API kann dieser Parameter wie folgt gesetzt werden.
+
+   API Version 2
+
+      PUT http://<host>/api/v2/pipelines/0/nodes/rc_camera/services/parameters?trigger_activation=<value>
+
+   API Version 1 (veraltet)
+
+      PUT http://<host>/api/v1/nodes/rc_camera/parameters?trigger_activation=<value>
+
 fps (Bildwiederholrate)
 
    Dieser Wert bezeichnet die Bildwiederholrate der Kamera in Bildern

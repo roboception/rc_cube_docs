@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Kamera &mdash; rc_cube 24.07.1
+  <title>Kamera &mdash; rc_cube 24.07.2
  Dokumentation</title>
   
 
@@ -60,7 +60,7 @@
         <link rel="index" title="Stichwortverzeichnis"
               href="genindex.html"/>
         <link rel="search" title="Suche" href="search.html"/>
-    <link rel="top" title="rc_cube 24.07.1
+    <link rel="top" title="rc_cube 24.07.2
  Dokumentation" href="index.html"/>
         <link rel="up" title="3D-Kamera-Module" href="camera_modules.html"/>
         <link rel="next" title="Stereo-Matching" href="stereo_matching.html"/>
@@ -752,10 +752,14 @@
 <a class="reference internal image-reference" href="_images/webgui_camera_cube_de.png"><img alt="_images/webgui_camera_cube_de.png" src="_images/webgui_camera_cube_de.png" style="width: 100%;" /></a>
 <p class="caption"><span class="caption-number">Abb. 10 </span><span class="caption-text">Seite <em>Kamera</em> in der Web GUI</span></p>
 </div>
-<span class="target" id="expl-fps"></span><div class="section" id="fps-fps">
-<span id="index-3"></span><h4><code class="docutils literal notranslate"><span class="pre">fps</span></code> (<em>Bildwiederholrate</em>)<a class="headerlink" href="#fps-fps" title="Link zu dieser Überschrift">¶</a></h4>
+<span class="target" id="expl-acquisition-mode"></span><div class="section" id="acquisition-mode-acquisition-mode">
+<span id="index-3"></span><h4><code class="docutils literal notranslate"><span class="pre">acquisition_mode</span></code> (<em>Aufnahmemodus</em>)<a class="headerlink" href="#acquisition-mode-acquisition-mode" title="Link zu dieser Überschrift">¶</a></h4>
 <blockquote>
-<div><p>Dieser Wert bezeichnet die Bildwiederholrate der Kamera in Bildern pro Sekunde und begrenzt zugleich die Frequenz, mit der Tiefenbilder berechnet werden können. Die Bildwiederholrate entspricht auch der Frequenz, mit welcher der <em>rc_cube</em> Bilder über GigE&nbsp;Vision bereitstellt. Wird diese Frequenz verringert, reduziert sich auch die zur Übertragung der Bilder benötigte Bandbreite des Netzwerks.</p>
+<div><p>Dieser Wert bestimmt den Aufnahmemodus der Kamera. Im Modus <em>Kontinuierlich</em> (<code class="docutils literal notranslate"><span class="pre">Continuous</span></code>) nimmt die Kamera Bilder mit der in <code class="docutils literal notranslate"><span class="pre">fps</span></code> angegebenen Bildwiederholrate auf. Im Modus <em>Trigger</em> (<code class="docutils literal notranslate"><span class="pre">Trigger</span></code>) werden nur Bilder aufgenommen, wenn die Kamera ein Triggersignal empfängt.</p>
+<div class="admonition note">
+<p class="first admonition-title">Bemerkung</p>
+<p class="last">Dieser Parameter hat nur eine Auswirkung, wenn er in einer Pipeline mit einem <em>rc_viscore</em> oder <em>rc_visard NG</em> verwendet wird.</p>
+</div>
 <p>Über die REST-API kann dieser Parameter wie folgt gesetzt werden.</p>
 <div class="sphinx-tabs docutils container">
 <div class="ui top attached tabular menu sphinx-menu docutils container">
@@ -769,26 +773,25 @@
 </div>
 </div>
 <div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-0-0 active docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v2/pipelines/&lt;<span class="m">0</span>,1,2,3&gt;/nodes/rc_camera/parameters?fps<span class="o">=</span>&lt;value&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v2/pipelines/0/nodes/rc_camera/services/parameters?acquisition_mode<span class="o">=</span>&lt;value&gt;
 </pre></div>
 </div>
 </div>
 <div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-0-1 docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v1/nodes/rc_camera/parameters?fps<span class="o">=</span>&lt;value&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v1/nodes/rc_camera/parameters?acquisition_mode<span class="o">=</span>&lt;value&gt;
 </pre></div>
 </div>
 </div>
 </div>
 </div></blockquote>
-<span class="target" id="expl-gamma"></span></div>
-<div class="section" id="gamma-gamma">
-<span id="index-4"></span><h4><code class="docutils literal notranslate"><span class="pre">gamma</span></code> (<em>Gamma</em>)<a class="headerlink" href="#gamma-gamma" title="Link zu dieser Überschrift">¶</a></h4>
+<span class="target" id="expl-trigger-source"></span></div>
+<div class="section" id="trigger-source-trigger-source">
+<span id="index-4"></span><h4><code class="docutils literal notranslate"><span class="pre">trigger_source</span></code> (<em>Triggerquelle</em>)<a class="headerlink" href="#trigger-source-trigger-source" title="Link zu dieser Überschrift">¶</a></h4>
 <blockquote>
-<div><p>Der Gammawert bestimmt, wie das gemessene Licht auf die Helligkeit eines Pixels abgebildet wird. Ein Gammawert von 1 entspricht einem linearen Zusammenhang. Kleinere Gammawerte lassen dunkle Bildbereiche heller erscheinen. Ein Wert um 0.5 entspricht der menschlichen Wahrnehmung.</p>
-<p>Nicht verfügbar für blaze Sensoren.</p>
+<div><p>Dieser Wert wird nur verwendet, wenn der Aufnahmemodus auf <code class="docutils literal notranslate"><span class="pre">Trigger</span></code> gesetzt ist und bestimmt die Triggerquelle. Im <code class="docutils literal notranslate"><span class="pre">Software</span></code>-Modus kann ein Trigger über den <code class="docutils literal notranslate"><span class="pre">rc_camera/acquisition_trigger</span></code> Service gesendet werden. Wenn der Aufnahmemodus <code class="docutils literal notranslate"><span class="pre">acquisition_mode</span></code> für die Tiefenbilder auf <code class="docutils literal notranslate"><span class="pre">SingleFrame</span></code> oder <code class="docutils literal notranslate"><span class="pre">SingleFrameOut1</span></code> gesetzt ist (siehe <a class="reference internal" href="stereo_matching.html#sect-disp-image-parameters"><span class="std std-ref">Parameter</span></a>), wird der Kamera-Softwaretrigger automatisch bei jeder Tiefenbildaufnahme gesendet. Die Modi <code class="docutils literal notranslate"><span class="pre">In1</span></code> und <code class="docutils literal notranslate"><span class="pre">In2</span></code> sind Hardwaretriggermodi. Ein Bild wird aufgenommen, sobald ein Signal auf dem jeweiligen Eingang empfangen wird.</p>
 <div class="admonition note">
 <p class="first admonition-title">Bemerkung</p>
-<p class="last">Für eine Pipeline vom Typ <code class="docutils literal notranslate"><span class="pre">rc_visard</span></code> kann dieser Wert nur geändert werden, wenn der verbundene <em>rc_visard</em> mindestens die Firmwareversion 22.07 hat. Andernfalls ist der Gammawert immer 1.0.</p>
+<p class="last">Dieser Parameter hat nur eine Auswirkung, wenn er in einer Pipeline mit einem <em>rc_viscore</em> oder <em>rc_visard NG</em> verwendet wird.</p>
 </div>
 <p>Über die REST-API kann dieser Parameter wie folgt gesetzt werden.</p>
 <div class="sphinx-tabs docutils container">
@@ -803,30 +806,26 @@
 </div>
 </div>
 <div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-1-0 active docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v2/pipelines/&lt;<span class="m">0</span>,1,2,3&gt;/nodes/rc_camera/parameters?gamma<span class="o">=</span>&lt;value&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v2/pipelines/0/nodes/rc_camera/services/parameters?trigger_source<span class="o">=</span>&lt;value&gt;
 </pre></div>
 </div>
 </div>
 <div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-1-1 docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v1/nodes/rc_camera/parameters?gamma<span class="o">=</span>&lt;value&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v1/nodes/rc_camera/parameters?trigger_source<span class="o">=</span>&lt;value&gt;
 </pre></div>
 </div>
 </div>
 </div>
 </div></blockquote>
-<span class="target" id="expl-exp-control"></span></div>
-<div class="section" id="exp-control-exposure-auto-hdr-or-manual">
-<span id="index-5"></span><h4><code class="docutils literal notranslate"><span class="pre">exp_control</span></code> (Belichtung <em>Auto</em>, <em>HDR</em> oder <em>Manual</em>)<a class="headerlink" href="#exp-control-exposure-auto-hdr-or-manual" title="Link zu dieser Überschrift">¶</a></h4>
+<span class="target" id="expl-trigger-activation"></span></div>
+<div class="section" id="trigger-activation-trigger-activation">
+<span id="index-5"></span><h4><code class="docutils literal notranslate"><span class="pre">trigger_activation</span></code> (<em>Triggeraktivierung</em>)<a class="headerlink" href="#trigger-activation-trigger-activation" title="Link zu dieser Überschrift">¶</a></h4>
 <blockquote>
-<div><p>Die Belichtungsregelung kann auf <cite>Auto</cite>, <cite>HDR</cite> oder <cite>Manual</cite> gesetzt werden. Dies ersetzt den veralteten <cite>exp_auto</cite> Parameter.</p>
-<p><cite>Auto</cite>: Dies ist der Standard Modus der die die Belichtungszeit und Verstärkung automatisch anpasst, um Unter- und Überbelichtung zu vermeiden. Wenn die Automatik abgeschaltet wird, werden <cite>exp_value</cite> und <cite>gain_value</cite> auf die letzten von der Automatik ermittelten Werte für Belichtungszeit und Verstärkung gesetzt.</p>
-<p><cite>HDR</cite>: Der HDR Modus berechnet Bilder mit hohem Dynamikbereich durch Kombination von Bildern mit unterschiedlichen Belichtungszeiten um über- und unterbelichtete Bereiche zu vermeiden. Dieser Modus verringert die Bildwiederholrate und ist nur für statische Szenen geeignet.</p>
-<p><cite>Manual</cite>: Im manuellen Belichtungsmodus werden die Belichtungszeit und die Verstärkung konstant gehalten unabhängig von der resultierenden Bildhelligkeit.</p>
+<div><p>Dieser Wert wird nur verwendet, wenn der Aufnahmemodus auf <code class="docutils literal notranslate"><span class="pre">Trigger</span></code> gesetzt ist und die Triggerquelle auf <code class="docutils literal notranslate"><span class="pre">In1</span></code> oder <code class="docutils literal notranslate"><span class="pre">In2</span></code> steht. Er bestimmt die Signalflanke, die genutzt werden soll, um eine Bildaufnahme auszulösen. Mögliche Werte sind <code class="docutils literal notranslate"><span class="pre">RisingEdge</span></code> (steigende Flanke), <code class="docutils literal notranslate"><span class="pre">FallingEdge</span></code> (fallende Flanke) oder <code class="docutils literal notranslate"><span class="pre">AnyEdge</span></code> (steigende und fallende Flanke).</p>
 <div class="admonition note">
 <p class="first admonition-title">Bemerkung</p>
-<p class="last">Für eine Pipeline vom Typ <code class="docutils literal notranslate"><span class="pre">rc_visard</span></code> kann der <cite>HDR</cite> Modus nur genutzt werden, wenn der verbundene <em>rc_visard</em> mindestens die Firmwareversion 23.01 hat.</p>
+<p class="last">Dieser Parameter hat nur eine Auswirkung, wenn er in einer Pipeline mit einem <em>rc_viscore</em> oder <em>rc_visard NG</em> verwendet wird.</p>
 </div>
-<p>Nicht verfügbar für blaze Sensoren.</p>
 <p>Über die REST-API kann dieser Parameter wie folgt gesetzt werden.</p>
 <div class="sphinx-tabs docutils container">
 <div class="ui top attached tabular menu sphinx-menu docutils container">
@@ -840,23 +839,22 @@
 </div>
 </div>
 <div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-2-0 active docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v2/pipelines/&lt;<span class="m">0</span>,1,2,3&gt;/nodes/rc_camera/parameters?exp_control<span class="o">=</span>&lt;value&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v2/pipelines/0/nodes/rc_camera/services/parameters?trigger_activation<span class="o">=</span>&lt;value&gt;
 </pre></div>
 </div>
 </div>
 <div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-2-1 docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v1/nodes/rc_camera/parameters?exp_control<span class="o">=</span>&lt;value&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v1/nodes/rc_camera/parameters?trigger_activation<span class="o">=</span>&lt;value&gt;
 </pre></div>
 </div>
 </div>
 </div>
 </div></blockquote>
-<span class="target" id="expl-exp-auto"></span></div>
-<div class="section" id="exp-auto-deprecated">
-<span id="index-6"></span><h4><code class="docutils literal notranslate"><span class="pre">exp_auto</span></code> (veraltet)<a class="headerlink" href="#exp-auto-deprecated" title="Link zu dieser Überschrift">¶</a></h4>
+</div>
+<span class="target" id="expl-fps"></span><div class="section" id="fps-fps">
+<span id="index-6"></span><h4><code class="docutils literal notranslate"><span class="pre">fps</span></code> (<em>Bildwiederholrate</em>)<a class="headerlink" href="#fps-fps" title="Link zu dieser Überschrift">¶</a></h4>
 <blockquote>
-<div><p><strong>Dieser Parameter ist veraltet und wird in einem zukünftigen Release entfernt.</strong> Nutzen Sie stattdessen <cite>exp_control</cite>.</p>
-<p>Dieser Wert lässt sich für den automatischen Belichtungsmodus auf <cite>true</cite> und für den manuellen Belichtungsmodus auf <cite>false</cite> setzen. Im manuellen Belichtungsmodus wird die gewählte Belichtungszeit konstant gehalten und die Verstärkung bleibt bei 0,0&nbsp;dB, auch wenn die Bilder über- oder unterbelichtet sind. Im automatischen Belichtungsmodus werden die Belichtungszeit und der Verstärkungsfaktor automatisch angepasst, sodass das Bild korrekt belichtet wird. Wenn die Automatik abgeschaltet wird, werden <code class="docutils literal notranslate"><span class="pre">exp_value</span></code> und <code class="docutils literal notranslate"><span class="pre">gain_value</span></code> auf die letzten von der Automatik ermittelten Werte für Belichtungszeit und Verstärkung gesetzt.</p>
+<div><p>Dieser Wert bezeichnet die Bildwiederholrate der Kamera in Bildern pro Sekunde und begrenzt zugleich die Frequenz, mit der Tiefenbilder berechnet werden können. Die Bildwiederholrate entspricht auch der Frequenz, mit welcher der <em>rc_cube</em> Bilder über GigE&nbsp;Vision bereitstellt. Wird diese Frequenz verringert, reduziert sich auch die zur Übertragung der Bilder benötigte Bandbreite des Netzwerks.</p>
 <p>Über die REST-API kann dieser Parameter wie folgt gesetzt werden.</p>
 <div class="sphinx-tabs docutils container">
 <div class="ui top attached tabular menu sphinx-menu docutils container">
@@ -870,26 +868,27 @@
 </div>
 </div>
 <div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-3-0 active docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v2/pipelines/&lt;<span class="m">0</span>,1,2,3&gt;/nodes/rc_camera/parameters?exp_auto<span class="o">=</span>&lt;value&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v2/pipelines/&lt;<span class="m">0</span>,1,2,3&gt;/nodes/rc_camera/parameters?fps<span class="o">=</span>&lt;value&gt;
 </pre></div>
 </div>
 </div>
 <div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-3-1 docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v1/nodes/rc_camera/parameters?exp_auto<span class="o">=</span>&lt;value&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v1/nodes/rc_camera/parameters?fps<span class="o">=</span>&lt;value&gt;
 </pre></div>
 </div>
 </div>
 </div>
 </div></blockquote>
-<span class="target" id="expl-exp-auto-mode"></span></div>
-<div class="section" id="exp-auto-mode-auto-exposure-mode">
-<span id="index-7"></span><h4><code class="docutils literal notranslate"><span class="pre">exp_auto_mode</span></code> (<em>Modus Belichtungszeitautomatik</em>)<a class="headerlink" href="#exp-auto-mode-auto-exposure-mode" title="Link zu dieser Überschrift">¶</a></h4>
+<span class="target" id="expl-gamma"></span></div>
+<div class="section" id="gamma-gamma">
+<span id="index-7"></span><h4><code class="docutils literal notranslate"><span class="pre">gamma</span></code> (<em>Gamma</em>)<a class="headerlink" href="#gamma-gamma" title="Link zu dieser Überschrift">¶</a></h4>
 <blockquote>
-<div><p>Der Modus für automatische Belichtung kann auf <cite>Normal</cite>, <cite>Out1High</cite> oder <cite>AdaptiveOut1</cite> gesetzt werden. Diese Modi sind nur relevant, wenn der <em>rc_cube</em> mit einer externen Lichtquelle oder einem Projektor betrieben wird, der an den GPIO-Ausgang 1 des <em>rc_visard</em> oder <em>rc_viscore</em> angeschlossen ist. Dieser Ausgang kann durch das IOControl-Modul (<a class="reference internal" href="iocontrol.html#sect-iocontrol"><span class="std std-ref">IOControl und Projektor-Kontrolle</span></a>) gesteuert werden.</p>
-<p><cite>Normal</cite>: Alle Bilder werden für die Regelung der Belichtungszeit in Betracht gezogen, außer wenn der IOControl-Modus für den GPIO-Ausgang 1 <cite>ExposureAlternateActive</cite> ist: Dann werden nur Bilder berücksichtigt, bei denen GPIO-Ausgang 1 HIGH ist, da diese Bilder heller sein können, falls dieser GPIO-Ausgang benutzt wird um einen externen Projektor auszulösen.</p>
-<p><cite>Out1High</cite>: Die Belichtungszeit wird nur anhand der Bilder mit GPIO-Ausgang 1 HIGH angepasst. Bilder bei denen GPIO-Ausgang 1 LOW ist, werden für die Belichtungszeitregelung nicht berücksichtigt. Das bedeutet, die Belichtungszeit ändert sich nicht, solange nur Bilder mit GPIO-Ausgang 1 LOW aufgenommen werden. Dieser Modus wird für die Benutzung mit dem Single+Out1 Tiefenbild Aufnahmemodus (siehe <a class="reference internal" href="stereo_matching.html#sect-disp-image-parameters"><span class="std std-ref">Stereo Matching Parameters</span></a> und externem Projektor empfohlen, wenn die Helligkeit der Szene nur zu den Zeitpunkten berücksichtigt werden soll, wenn GPIO-Ausgang 1 HIGH ist. Das ist zum Beispiel der Fall, wenn kurz vor einer Objekterkennung ein heller Teil des Roboters durch das Bild fährt, der die Belichtungseinstellungen jedoch nicht beeinflussen soll.</p>
-<p><cite>AdaptiveOut1</cite>: Dieser Modus nutzt alle Kamerabilder und speichert die Differenz der Belichtung zwischen Bildern mit GPIO Ausgang 1 HIGH und LOW. Während der IOControl-Modus für GPIO-Ausgang 1 LOW ist, werden die Bilder um diese Differenz unterbelichtet, um eine Überbelichtung zu verhindern, sobald der externe Projektor über GPIO-Ausgang 1 ausgelöst wird. Die Differenz der Belichtung wird als <em>Out1 Reduktion</em> unter den Livebildern angezeigt. Dieser Modus wird empfohlen, wenn im Stereo-Matching-Modul der Parameter <code class="docutils literal notranslate"><span class="pre">acquisition_mode</span></code> auf <code class="docutils literal notranslate"><span class="pre">SingleFrameOut1</span></code> (<em>Einzelbild+Out1</em>) gesetzt ist (<a class="reference internal" href="stereo_matching.html#sect-disp-image-parameters"><span class="std std-ref">Parameter des Stereo-Matching-Moduls</span></a>), und ein externer Projektor an den GPIO-Ausgang 1 angeschlossen ist, und wenn die Helligkeit der Szene zu jeder Zeit zur Belichtungszeitregelung berücksichtigt werden soll.Das ist zum Beispiel in Anwendungen mit veränderlichen äußeren Lichtbedingungen der Fall.</p>
+<div><p>Der Gammawert bestimmt, wie das gemessene Licht auf die Helligkeit eines Pixels abgebildet wird. Ein Gammawert von 1 entspricht einem linearen Zusammenhang. Kleinere Gammawerte lassen dunkle Bildbereiche heller erscheinen. Ein Wert um 0.5 entspricht der menschlichen Wahrnehmung.</p>
 <p>Nicht verfügbar für blaze Sensoren.</p>
+<div class="admonition note">
+<p class="first admonition-title">Bemerkung</p>
+<p class="last">Für eine Pipeline vom Typ <code class="docutils literal notranslate"><span class="pre">rc_visard</span></code> kann dieser Wert nur geändert werden, wenn der verbundene <em>rc_visard</em> mindestens die Firmwareversion 22.07 hat. Andernfalls ist der Gammawert immer 1.0.</p>
+</div>
 <p>Über die REST-API kann dieser Parameter wie folgt gesetzt werden.</p>
 <div class="sphinx-tabs docutils container">
 <div class="ui top attached tabular menu sphinx-menu docutils container">
@@ -903,22 +902,30 @@
 </div>
 </div>
 <div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-4-0 active docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v2/pipelines/&lt;<span class="m">0</span>,1,2,3&gt;/nodes/rc_camera/parameters?exp_auto_mode<span class="o">=</span>&lt;value&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v2/pipelines/&lt;<span class="m">0</span>,1,2,3&gt;/nodes/rc_camera/parameters?gamma<span class="o">=</span>&lt;value&gt;
 </pre></div>
 </div>
 </div>
 <div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-4-1 docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v1/nodes/rc_camera/parameters?exp_auto_mode<span class="o">=</span>&lt;value&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v1/nodes/rc_camera/parameters?gamma<span class="o">=</span>&lt;value&gt;
 </pre></div>
 </div>
 </div>
 </div>
 </div></blockquote>
-<span class="target" id="expl-exp-max"></span></div>
-<div class="section" id="exp-max-max-exposure">
-<span id="index-8"></span><h4><code class="docutils literal notranslate"><span class="pre">exp_max</span></code> (<em>Maximale Belichtungszeit</em>)<a class="headerlink" href="#exp-max-max-exposure" title="Link zu dieser Überschrift">¶</a></h4>
+<span class="target" id="expl-exp-control"></span></div>
+<div class="section" id="exp-control-exposure-auto-hdr-or-manual">
+<span id="index-8"></span><h4><code class="docutils literal notranslate"><span class="pre">exp_control</span></code> (Belichtung <em>Auto</em>, <em>HDR</em> oder <em>Manual</em>)<a class="headerlink" href="#exp-control-exposure-auto-hdr-or-manual" title="Link zu dieser Überschrift">¶</a></h4>
 <blockquote>
-<div><p>Dieser Wert gibt die maximale Belichtungszeit im automatischen Modus in Sekunden an. Die tatsächliche Belichtungszeit wird automatisch angepasst, sodass das Bild korrekt belichtet wird. Sind die Bilder trotz maximaler Belichtungszeit noch immer unterbelichtet, erhöht der <em>rc_cube</em> schrittweise die Verstärkung, um die Helligkeit der Bilder zu erhöhen. Es ist sinnvoll, die Belichtungszeit zu begrenzen, um die bei schnellen Bewegungen auftretende Bildunschärfe zu vermeiden oder zu verringern. Jedoch führt eine höhere Verstärkung auch zu mehr Bildrauschen. Welcher Kompromiss der beste ist, hängt immer auch von der Anwendung ab.</p>
+<div><p>Die Belichtungsregelung kann auf <cite>Auto</cite>, <cite>HDR</cite> oder <cite>Manual</cite> gesetzt werden. Dies ersetzt den veralteten <cite>exp_auto</cite> Parameter.</p>
+<p><cite>Auto</cite>: Dies ist der Standard Modus der die die Belichtungszeit und Verstärkung automatisch anpasst, um Unter- und Überbelichtung zu vermeiden. Wenn die Automatik abgeschaltet wird, werden <cite>exp_value</cite> und <cite>gain_value</cite> auf die letzten von der Automatik ermittelten Werte für Belichtungszeit und Verstärkung gesetzt.</p>
+<p><cite>HDR</cite>: Der HDR Modus berechnet Bilder mit hohem Dynamikbereich durch Kombination von Bildern mit unterschiedlichen Belichtungszeiten um über- und unterbelichtete Bereiche zu vermeiden. Dieser Modus verringert die Bildwiederholrate und ist nur für statische Szenen geeignet.</p>
+<p><cite>Manual</cite>: Im manuellen Belichtungsmodus werden die Belichtungszeit und die Verstärkung konstant gehalten unabhängig von der resultierenden Bildhelligkeit.</p>
+<div class="admonition note">
+<p class="first admonition-title">Bemerkung</p>
+<p class="last">Für eine Pipeline vom Typ <code class="docutils literal notranslate"><span class="pre">rc_visard</span></code> kann der <cite>HDR</cite> Modus nur genutzt werden, wenn der verbundene <em>rc_visard</em> mindestens die Firmwareversion 23.01 hat.</p>
+</div>
+<p>Nicht verfügbar für blaze Sensoren.</p>
 <p>Über die REST-API kann dieser Parameter wie folgt gesetzt werden.</p>
 <div class="sphinx-tabs docutils container">
 <div class="ui top attached tabular menu sphinx-menu docutils container">
@@ -932,11 +939,103 @@
 </div>
 </div>
 <div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-5-0 active docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v2/pipelines/&lt;<span class="m">0</span>,1,2,3&gt;/nodes/rc_camera/parameters?exp_max<span class="o">=</span>&lt;value&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v2/pipelines/&lt;<span class="m">0</span>,1,2,3&gt;/nodes/rc_camera/parameters?exp_control<span class="o">=</span>&lt;value&gt;
 </pre></div>
 </div>
 </div>
 <div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-5-1 docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v1/nodes/rc_camera/parameters?exp_control<span class="o">=</span>&lt;value&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div></blockquote>
+<span class="target" id="expl-exp-auto"></span></div>
+<div class="section" id="exp-auto-deprecated">
+<span id="index-9"></span><h4><code class="docutils literal notranslate"><span class="pre">exp_auto</span></code> (veraltet)<a class="headerlink" href="#exp-auto-deprecated" title="Link zu dieser Überschrift">¶</a></h4>
+<blockquote>
+<div><p><strong>Dieser Parameter ist veraltet und wird in einem zukünftigen Release entfernt.</strong> Nutzen Sie stattdessen <cite>exp_control</cite>.</p>
+<p>Dieser Wert lässt sich für den automatischen Belichtungsmodus auf <cite>true</cite> und für den manuellen Belichtungsmodus auf <cite>false</cite> setzen. Im manuellen Belichtungsmodus wird die gewählte Belichtungszeit konstant gehalten und die Verstärkung bleibt bei 0,0&nbsp;dB, auch wenn die Bilder über- oder unterbelichtet sind. Im automatischen Belichtungsmodus werden die Belichtungszeit und der Verstärkungsfaktor automatisch angepasst, sodass das Bild korrekt belichtet wird. Wenn die Automatik abgeschaltet wird, werden <code class="docutils literal notranslate"><span class="pre">exp_value</span></code> und <code class="docutils literal notranslate"><span class="pre">gain_value</span></code> auf die letzten von der Automatik ermittelten Werte für Belichtungszeit und Verstärkung gesetzt.</p>
+<p>Über die REST-API kann dieser Parameter wie folgt gesetzt werden.</p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-6-0 docutils container">
+<div class="docutils container">
+<strong>API Version 2</strong></div>
+</div>
+<div class="item sphinx-data-tab-6-1 docutils container">
+<div class="docutils container">
+<strong>API Version 1 (veraltet)</strong></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-6-0 active docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v2/pipelines/&lt;<span class="m">0</span>,1,2,3&gt;/nodes/rc_camera/parameters?exp_auto<span class="o">=</span>&lt;value&gt;
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-6-1 docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v1/nodes/rc_camera/parameters?exp_auto<span class="o">=</span>&lt;value&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div></blockquote>
+<span class="target" id="expl-exp-auto-mode"></span></div>
+<div class="section" id="exp-auto-mode-auto-exposure-mode">
+<span id="index-10"></span><h4><code class="docutils literal notranslate"><span class="pre">exp_auto_mode</span></code> (<em>Modus Belichtungszeitautomatik</em>)<a class="headerlink" href="#exp-auto-mode-auto-exposure-mode" title="Link zu dieser Überschrift">¶</a></h4>
+<blockquote>
+<div><p>Der Modus für automatische Belichtung kann auf <cite>Normal</cite>, <cite>Out1High</cite> oder <cite>AdaptiveOut1</cite> gesetzt werden. Diese Modi sind nur relevant, wenn der <em>rc_cube</em> mit einer externen Lichtquelle oder einem Projektor betrieben wird, der an den GPIO-Ausgang 1 des <em>rc_visard</em> oder <em>rc_viscore</em> angeschlossen ist. Dieser Ausgang kann durch das IOControl-Modul (<a class="reference internal" href="iocontrol.html#sect-iocontrol"><span class="std std-ref">IOControl und Projektor-Kontrolle</span></a>) gesteuert werden.</p>
+<p><cite>Normal</cite>: Alle Bilder werden für die Regelung der Belichtungszeit in Betracht gezogen, außer wenn der IOControl-Modus für den GPIO-Ausgang 1 <cite>ExposureAlternateActive</cite> ist: Dann werden nur Bilder berücksichtigt, bei denen GPIO-Ausgang 1 HIGH ist, da diese Bilder heller sein können, falls dieser GPIO-Ausgang benutzt wird um einen externen Projektor auszulösen.</p>
+<p><cite>Out1High</cite>: Die Belichtungszeit wird nur anhand der Bilder mit GPIO-Ausgang 1 HIGH angepasst. Bilder bei denen GPIO-Ausgang 1 LOW ist, werden für die Belichtungszeitregelung nicht berücksichtigt. Das bedeutet, die Belichtungszeit ändert sich nicht, solange nur Bilder mit GPIO-Ausgang 1 LOW aufgenommen werden. Dieser Modus wird für die Benutzung mit dem Single+Out1 Tiefenbild Aufnahmemodus (siehe <a class="reference internal" href="stereo_matching.html#sect-disp-image-parameters"><span class="std std-ref">Stereo Matching Parameters</span></a> und externem Projektor empfohlen, wenn die Helligkeit der Szene nur zu den Zeitpunkten berücksichtigt werden soll, wenn GPIO-Ausgang 1 HIGH ist. Das ist zum Beispiel der Fall, wenn kurz vor einer Objekterkennung ein heller Teil des Roboters durch das Bild fährt, der die Belichtungseinstellungen jedoch nicht beeinflussen soll.</p>
+<p><cite>AdaptiveOut1</cite>: Dieser Modus nutzt alle Kamerabilder und speichert die Differenz der Belichtung zwischen Bildern mit GPIO Ausgang 1 HIGH und LOW. Während der IOControl-Modus für GPIO-Ausgang 1 LOW ist, werden die Bilder um diese Differenz unterbelichtet, um eine Überbelichtung zu verhindern, sobald der externe Projektor über GPIO-Ausgang 1 ausgelöst wird. Die Differenz der Belichtung wird als <em>Out1 Reduktion</em> unter den Livebildern angezeigt. Dieser Modus wird empfohlen, wenn im Stereo-Matching-Modul der Parameter <code class="docutils literal notranslate"><span class="pre">acquisition_mode</span></code> auf <code class="docutils literal notranslate"><span class="pre">SingleFrameOut1</span></code> (<em>Einzelbild+Out1</em>) gesetzt ist (<a class="reference internal" href="stereo_matching.html#sect-disp-image-parameters"><span class="std std-ref">Parameter des Stereo-Matching-Moduls</span></a>), und ein externer Projektor an den GPIO-Ausgang 1 angeschlossen ist, und wenn die Helligkeit der Szene zu jeder Zeit zur Belichtungszeitregelung berücksichtigt werden soll.Das ist zum Beispiel in Anwendungen mit veränderlichen äußeren Lichtbedingungen der Fall.</p>
+<p>Nicht verfügbar für blaze Sensoren.</p>
+<p>Über die REST-API kann dieser Parameter wie folgt gesetzt werden.</p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-7-0 docutils container">
+<div class="docutils container">
+<strong>API Version 2</strong></div>
+</div>
+<div class="item sphinx-data-tab-7-1 docutils container">
+<div class="docutils container">
+<strong>API Version 1 (veraltet)</strong></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-7-0 active docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v2/pipelines/&lt;<span class="m">0</span>,1,2,3&gt;/nodes/rc_camera/parameters?exp_auto_mode<span class="o">=</span>&lt;value&gt;
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-7-1 docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v1/nodes/rc_camera/parameters?exp_auto_mode<span class="o">=</span>&lt;value&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div></blockquote>
+<span class="target" id="expl-exp-max"></span></div>
+<div class="section" id="exp-max-max-exposure">
+<span id="index-11"></span><h4><code class="docutils literal notranslate"><span class="pre">exp_max</span></code> (<em>Maximale Belichtungszeit</em>)<a class="headerlink" href="#exp-max-max-exposure" title="Link zu dieser Überschrift">¶</a></h4>
+<blockquote>
+<div><p>Dieser Wert gibt die maximale Belichtungszeit im automatischen Modus in Sekunden an. Die tatsächliche Belichtungszeit wird automatisch angepasst, sodass das Bild korrekt belichtet wird. Sind die Bilder trotz maximaler Belichtungszeit noch immer unterbelichtet, erhöht der <em>rc_cube</em> schrittweise die Verstärkung, um die Helligkeit der Bilder zu erhöhen. Es ist sinnvoll, die Belichtungszeit zu begrenzen, um die bei schnellen Bewegungen auftretende Bildunschärfe zu vermeiden oder zu verringern. Jedoch führt eine höhere Verstärkung auch zu mehr Bildrauschen. Welcher Kompromiss der beste ist, hängt immer auch von der Anwendung ab.</p>
+<p>Über die REST-API kann dieser Parameter wie folgt gesetzt werden.</p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-8-0 docutils container">
+<div class="docutils container">
+<strong>API Version 2</strong></div>
+</div>
+<div class="item sphinx-data-tab-8-1 docutils container">
+<div class="docutils container">
+<strong>API Version 1 (veraltet)</strong></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-8-0 active docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v2/pipelines/&lt;<span class="m">0</span>,1,2,3&gt;/nodes/rc_camera/parameters?exp_max<span class="o">=</span>&lt;value&gt;
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-8-1 docutils container">
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v1/nodes/rc_camera/parameters?exp_max<span class="o">=</span>&lt;value&gt;
 </pre></div>
 </div>
@@ -953,96 +1052,6 @@
 <p>Über die REST-API kann dieser Parameter wie folgt gesetzt werden.</p>
 <div class="sphinx-tabs docutils container">
 <div class="ui top attached tabular menu sphinx-menu docutils container">
-<div class="active item sphinx-data-tab-6-0 docutils container">
-<div class="docutils container">
-<strong>API Version 2</strong></div>
-</div>
-<div class="item sphinx-data-tab-6-1 docutils container">
-<div class="docutils container">
-<strong>API Version 1 (veraltet)</strong></div>
-</div>
-</div>
-<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-6-0 active docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v2/pipelines/&lt;<span class="m">0</span>,1,2,3&gt;/nodes/rc_camera/parameters?&lt;exp_auto_average_max<span class="p">|</span>exp_auto_average_min&gt;<span class="o">=</span>&lt;value&gt;
-</pre></div>
-</div>
-</div>
-<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-6-1 docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v1/nodes/rc_camera/parameters?&lt;exp_auto_average_max<span class="p">|</span>exp_auto_average_min&gt;<span class="o">=</span>&lt;value&gt;
-</pre></div>
-</div>
-</div>
-</div>
-</div></blockquote>
-<span class="target" id="expl-exp-region"></span></div>
-<div class="section" id="exp-offset-x-exp-offset-y-exp-width-exp-height-exposure-region">
-<span id="index-9"></span><h4><code class="docutils literal notranslate"><span class="pre">exp_offset_x</span></code>, <code class="docutils literal notranslate"><span class="pre">exp_offset_y</span></code>, <code class="docutils literal notranslate"><span class="pre">exp_width</span></code>, <code class="docutils literal notranslate"><span class="pre">exp_height</span></code> (<em>Bereich zur Regelung</em>)<a class="headerlink" href="#exp-offset-x-exp-offset-y-exp-width-exp-height-exposure-region" title="Link zu dieser Überschrift">¶</a></h4>
-<blockquote>
-<div><p>Diese Werte definieren eine rechteckige Region im linken rektifizierten Bild, um den von der automatischen Belichtung überwachten Bereich zu limitieren. Die Belichtungszeit und der Verstärkungsfaktor werden so gewählt, dass die definierte Region optimal belichtet wird. Dies kann zu Über- oder Unterbelichtung in anderen Bildbereichen führen. Falls die Breite oder Höhe auf 0 gesetzt werden, dann wird das gesamte linke und rechte Bild von der automatischen Belichtungsfunktion berücksichtigt. Dies ist die Standardeinstellung.</p>
-<p>Die Region wird in der Web GUI mit einem Rechteck im linken rektifizierten Bild visualisiert. Sie kann über Slider oder direkt im Bild mithilfe der Schaltfläche <code class="docutils literal notranslate"><span class="pre">Bereich</span> <span class="pre">im</span> <span class="pre">Bild</span> <span class="pre">auswählen</span></code> verändert werden.</p>
-<p>Über die REST-API kann dieser Parameter wie folgt gesetzt werden.</p>
-<div class="sphinx-tabs docutils container">
-<div class="ui top attached tabular menu sphinx-menu docutils container">
-<div class="active item sphinx-data-tab-7-0 docutils container">
-<div class="docutils container">
-<strong>API Version 2</strong></div>
-</div>
-<div class="item sphinx-data-tab-7-1 docutils container">
-<div class="docutils container">
-<strong>API Version 1 (veraltet)</strong></div>
-</div>
-</div>
-<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-7-0 active docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v2/pipelines/&lt;<span class="m">0</span>,1,2,3&gt;/nodes/rc_camera/parameters?&lt;exp_offset_x<span class="p">|</span>exp_offset_y<span class="p">|</span>exp_width<span class="p">|</span>exp_height&gt;<span class="o">=</span>&lt;value&gt;
-</pre></div>
-</div>
-</div>
-<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-7-1 docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v1/nodes/rc_camera/parameters?&lt;exp_offset_x<span class="p">|</span>exp_offset_y<span class="p">|</span>exp_width<span class="p">|</span>exp_height&gt;<span class="o">=</span>&lt;value&gt;
-</pre></div>
-</div>
-</div>
-</div>
-</div></blockquote>
-<span class="target" id="expl-exp-value"></span></div>
-<div class="section" id="exp-value-exposure">
-<span id="index-10"></span><h4><code class="docutils literal notranslate"><span class="pre">exp_value</span></code> (<em>Belichtungszeit</em>)<a class="headerlink" href="#exp-value-exposure" title="Link zu dieser Überschrift">¶</a></h4>
-<blockquote>
-<div><blockquote>
-<div><p>Dieser Wert gibt die Belichtungszeit im manuellen Modus in Sekunden an. Diese Belichtungszeit wird konstant gehalten, auch wenn die Bilder unterbelichtet sind.</p>
-<p>Über die REST-API kann dieser Parameter wie folgt gesetzt werden.</p>
-</div></blockquote>
-<div class="sphinx-tabs docutils container">
-<div class="ui top attached tabular menu sphinx-menu docutils container">
-<div class="active item sphinx-data-tab-8-0 docutils container">
-<div class="docutils container">
-<strong>API Version 2</strong></div>
-</div>
-<div class="item sphinx-data-tab-8-1 docutils container">
-<div class="docutils container">
-<strong>API Version 1 (veraltet)</strong></div>
-</div>
-</div>
-<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-8-0 active docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v2/pipelines/&lt;<span class="m">0</span>,1,2,3&gt;/nodes/rc_camera/parameters?exp_value<span class="o">=</span>&lt;value&gt;
-</pre></div>
-</div>
-</div>
-<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-8-1 docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v1/nodes/rc_camera/parameters?exp_value<span class="o">=</span>&lt;value&gt;
-</pre></div>
-</div>
-</div>
-</div>
-</div></blockquote>
-<span class="target" id="expl-gain-value"></span></div>
-<div class="section" id="gain-value-gain">
-<span id="index-11"></span><h4><code class="docutils literal notranslate"><span class="pre">gain_value</span></code> (<em>Verstärkungsfaktor</em>)<a class="headerlink" href="#gain-value-gain" title="Link zu dieser Überschrift">¶</a></h4>
-<blockquote>
-<div><p>Dieser Wert gibt den Verstärkungsfaktor im manuellen Modus in Dezibel an. Höhere Verstärkungswerte reduzieren die Belichtungszeit, führen aber zu Rauschen.</p>
-<p>Über die REST-API kann dieser Parameter wie folgt gesetzt werden.</p>
-<div class="sphinx-tabs docutils container">
-<div class="ui top attached tabular menu sphinx-menu docutils container">
 <div class="active item sphinx-data-tab-9-0 docutils container">
 <div class="docutils container">
 <strong>API Version 2</strong></div>
@@ -1053,22 +1062,23 @@
 </div>
 </div>
 <div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-9-0 active docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v2/pipelines/&lt;<span class="m">0</span>,1,2,3&gt;/nodes/rc_camera/parameters?gain_value<span class="o">=</span>&lt;value&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v2/pipelines/&lt;<span class="m">0</span>,1,2,3&gt;/nodes/rc_camera/parameters?&lt;exp_auto_average_max<span class="p">|</span>exp_auto_average_min&gt;<span class="o">=</span>&lt;value&gt;
 </pre></div>
 </div>
 </div>
 <div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-9-1 docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v1/nodes/rc_camera/parameters?gain_value<span class="o">=</span>&lt;value&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v1/nodes/rc_camera/parameters?&lt;exp_auto_average_max<span class="p">|</span>exp_auto_average_min&gt;<span class="o">=</span>&lt;value&gt;
 </pre></div>
 </div>
 </div>
 </div>
 </div></blockquote>
-<span class="target" id="expl-wb-auto"></span></div>
-<div class="section" id="wb-auto-white-balance-auto-or-manual">
-<span id="index-12"></span><h4><code class="docutils literal notranslate"><span class="pre">wb_auto</span></code> (<em>Weißabgleich Auto</em> oder <em>Manuell</em>)<a class="headerlink" href="#wb-auto-white-balance-auto-or-manual" title="Link zu dieser Überschrift">¶</a></h4>
+<span class="target" id="expl-exp-region"></span></div>
+<div class="section" id="exp-offset-x-exp-offset-y-exp-width-exp-height-exposure-region">
+<span id="index-12"></span><h4><code class="docutils literal notranslate"><span class="pre">exp_offset_x</span></code>, <code class="docutils literal notranslate"><span class="pre">exp_offset_y</span></code>, <code class="docutils literal notranslate"><span class="pre">exp_width</span></code>, <code class="docutils literal notranslate"><span class="pre">exp_height</span></code> (<em>Bereich zur Regelung</em>)<a class="headerlink" href="#exp-offset-x-exp-offset-y-exp-width-exp-height-exposure-region" title="Link zu dieser Überschrift">¶</a></h4>
 <blockquote>
-<div><p>Dieser Wert kann auf <cite>true</cite> gesetzt werden, um den automatischen Weißabgleich anzuschalten. Bei <cite>false</cite> kann das Verhältnis der Farben manuell mit <code class="docutils literal notranslate"><span class="pre">wb_ratio_red</span></code> und <code class="docutils literal notranslate"><span class="pre">wb_ratio_blue</span></code> gesetzt werden. <code class="docutils literal notranslate"><span class="pre">wb_ratio_red</span></code> und <code class="docutils literal notranslate"><span class="pre">wb_ratio_blue</span></code> werden auf die letzten von der Automatik ermittelten Werte gesetzt, wenn diese abgeschaltet wird. Der Weißabgleich ist bei monochromen Kameras ohne Funktion und wird in diesem Fall in der Web GUI nicht angezeigt.</p>
+<div><p>Diese Werte definieren eine rechteckige Region im linken rektifizierten Bild, um den von der automatischen Belichtung überwachten Bereich zu limitieren. Die Belichtungszeit und der Verstärkungsfaktor werden so gewählt, dass die definierte Region optimal belichtet wird. Dies kann zu Über- oder Unterbelichtung in anderen Bildbereichen führen. Falls die Breite oder Höhe auf 0 gesetzt werden, dann wird das gesamte linke und rechte Bild von der automatischen Belichtungsfunktion berücksichtigt. Dies ist die Standardeinstellung.</p>
+<p>Die Region wird in der Web GUI mit einem Rechteck im linken rektifizierten Bild visualisiert. Sie kann über Slider oder direkt im Bild mithilfe der Schaltfläche <code class="docutils literal notranslate"><span class="pre">Bereich</span> <span class="pre">im</span> <span class="pre">Bild</span> <span class="pre">auswählen</span></code> verändert werden.</p>
 <p>Über die REST-API kann dieser Parameter wie folgt gesetzt werden.</p>
 <div class="sphinx-tabs docutils container">
 <div class="ui top attached tabular menu sphinx-menu docutils container">
@@ -1082,23 +1092,25 @@
 </div>
 </div>
 <div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-10-0 active docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v2/pipelines/&lt;<span class="m">0</span>,1,2,3&gt;/nodes/rc_camera/parameters?wb_auto<span class="o">=</span>&lt;value&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v2/pipelines/&lt;<span class="m">0</span>,1,2,3&gt;/nodes/rc_camera/parameters?&lt;exp_offset_x<span class="p">|</span>exp_offset_y<span class="p">|</span>exp_width<span class="p">|</span>exp_height&gt;<span class="o">=</span>&lt;value&gt;
 </pre></div>
 </div>
 </div>
 <div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-10-1 docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v1/nodes/rc_camera/parameters?wb_auto<span class="o">=</span>&lt;value&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v1/nodes/rc_camera/parameters?&lt;exp_offset_x<span class="p">|</span>exp_offset_y<span class="p">|</span>exp_width<span class="p">|</span>exp_height&gt;<span class="o">=</span>&lt;value&gt;
 </pre></div>
 </div>
 </div>
 </div>
 </div></blockquote>
-<span class="target" id="expl-wb-ratio"></span></div>
-<div class="section" id="wb-ratio-blue-and-wb-ratio-red-blue-green-and-red-green">
-<span id="index-13"></span><h4><code class="docutils literal notranslate"><span class="pre">wb_ratio_blue</span></code> und <code class="docutils literal notranslate"><span class="pre">wb_ratio_red</span></code> (<em>Blau | Grün</em> and <em>Rot | Grün</em>)<a class="headerlink" href="#wb-ratio-blue-and-wb-ratio-red-blue-green-and-red-green" title="Link zu dieser Überschrift">¶</a></h4>
+<span class="target" id="expl-exp-value"></span></div>
+<div class="section" id="exp-value-exposure">
+<span id="index-13"></span><h4><code class="docutils literal notranslate"><span class="pre">exp_value</span></code> (<em>Belichtungszeit</em>)<a class="headerlink" href="#exp-value-exposure" title="Link zu dieser Überschrift">¶</a></h4>
 <blockquote>
-<div><p>Mit diesen Werten kann das Verhältnis von Blau zu Grün bzw. Rot zu Grün für einen manuellen Weißabgleich gesetzt werden. Der Weißabgleich ist bei monochromen Kameras ohne Funktion und wird in diesem Fall in der Web GUI nicht angezeigt.</p>
+<div><blockquote>
+<div><p>Dieser Wert gibt die Belichtungszeit im manuellen Modus in Sekunden an. Diese Belichtungszeit wird konstant gehalten, auch wenn die Bilder unterbelichtet sind.</p>
 <p>Über die REST-API kann dieser Parameter wie folgt gesetzt werden.</p>
+</div></blockquote>
 <div class="sphinx-tabs docutils container">
 <div class="ui top attached tabular menu sphinx-menu docutils container">
 <div class="active item sphinx-data-tab-11-0 docutils container">
@@ -1111,11 +1123,98 @@
 </div>
 </div>
 <div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-11-0 active docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v2/pipelines/&lt;<span class="m">0</span>,1,2,3&gt;/nodes/rc_camera/parameters?&lt;wb_ratio_blue<span class="p">|</span>wb_ratio_red&gt;<span class="o">=</span>&lt;value&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v2/pipelines/&lt;<span class="m">0</span>,1,2,3&gt;/nodes/rc_camera/parameters?exp_value<span class="o">=</span>&lt;value&gt;
 </pre></div>
 </div>
 </div>
 <div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-11-1 docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v1/nodes/rc_camera/parameters?exp_value<span class="o">=</span>&lt;value&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div></blockquote>
+<span class="target" id="expl-gain-value"></span></div>
+<div class="section" id="gain-value-gain">
+<span id="index-14"></span><h4><code class="docutils literal notranslate"><span class="pre">gain_value</span></code> (<em>Verstärkungsfaktor</em>)<a class="headerlink" href="#gain-value-gain" title="Link zu dieser Überschrift">¶</a></h4>
+<blockquote>
+<div><p>Dieser Wert gibt den Verstärkungsfaktor im manuellen Modus in Dezibel an. Höhere Verstärkungswerte reduzieren die Belichtungszeit, führen aber zu Rauschen.</p>
+<p>Über die REST-API kann dieser Parameter wie folgt gesetzt werden.</p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-12-0 docutils container">
+<div class="docutils container">
+<strong>API Version 2</strong></div>
+</div>
+<div class="item sphinx-data-tab-12-1 docutils container">
+<div class="docutils container">
+<strong>API Version 1 (veraltet)</strong></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-12-0 active docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v2/pipelines/&lt;<span class="m">0</span>,1,2,3&gt;/nodes/rc_camera/parameters?gain_value<span class="o">=</span>&lt;value&gt;
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-12-1 docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v1/nodes/rc_camera/parameters?gain_value<span class="o">=</span>&lt;value&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div></blockquote>
+<span class="target" id="expl-wb-auto"></span></div>
+<div class="section" id="wb-auto-white-balance-auto-or-manual">
+<span id="index-15"></span><h4><code class="docutils literal notranslate"><span class="pre">wb_auto</span></code> (<em>Weißabgleich Auto</em> oder <em>Manuell</em>)<a class="headerlink" href="#wb-auto-white-balance-auto-or-manual" title="Link zu dieser Überschrift">¶</a></h4>
+<blockquote>
+<div><p>Dieser Wert kann auf <cite>true</cite> gesetzt werden, um den automatischen Weißabgleich anzuschalten. Bei <cite>false</cite> kann das Verhältnis der Farben manuell mit <code class="docutils literal notranslate"><span class="pre">wb_ratio_red</span></code> und <code class="docutils literal notranslate"><span class="pre">wb_ratio_blue</span></code> gesetzt werden. <code class="docutils literal notranslate"><span class="pre">wb_ratio_red</span></code> und <code class="docutils literal notranslate"><span class="pre">wb_ratio_blue</span></code> werden auf die letzten von der Automatik ermittelten Werte gesetzt, wenn diese abgeschaltet wird. Der Weißabgleich ist bei monochromen Kameras ohne Funktion und wird in diesem Fall in der Web GUI nicht angezeigt.</p>
+<p>Über die REST-API kann dieser Parameter wie folgt gesetzt werden.</p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-13-0 docutils container">
+<div class="docutils container">
+<strong>API Version 2</strong></div>
+</div>
+<div class="item sphinx-data-tab-13-1 docutils container">
+<div class="docutils container">
+<strong>API Version 1 (veraltet)</strong></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-13-0 active docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v2/pipelines/&lt;<span class="m">0</span>,1,2,3&gt;/nodes/rc_camera/parameters?wb_auto<span class="o">=</span>&lt;value&gt;
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-13-1 docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v1/nodes/rc_camera/parameters?wb_auto<span class="o">=</span>&lt;value&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div></blockquote>
+<span class="target" id="expl-wb-ratio"></span></div>
+<div class="section" id="wb-ratio-blue-and-wb-ratio-red-blue-green-and-red-green">
+<span id="index-16"></span><h4><code class="docutils literal notranslate"><span class="pre">wb_ratio_blue</span></code> und <code class="docutils literal notranslate"><span class="pre">wb_ratio_red</span></code> (<em>Blau | Grün</em> and <em>Rot | Grün</em>)<a class="headerlink" href="#wb-ratio-blue-and-wb-ratio-red-blue-green-and-red-green" title="Link zu dieser Überschrift">¶</a></h4>
+<blockquote>
+<div><p>Mit diesen Werten kann das Verhältnis von Blau zu Grün bzw. Rot zu Grün für einen manuellen Weißabgleich gesetzt werden. Der Weißabgleich ist bei monochromen Kameras ohne Funktion und wird in diesem Fall in der Web GUI nicht angezeigt.</p>
+<p>Über die REST-API kann dieser Parameter wie folgt gesetzt werden.</p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-14-0 docutils container">
+<div class="docutils container">
+<strong>API Version 2</strong></div>
+</div>
+<div class="item sphinx-data-tab-14-1 docutils container">
+<div class="docutils container">
+<strong>API Version 1 (veraltet)</strong></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-14-0 active docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v2/pipelines/&lt;<span class="m">0</span>,1,2,3&gt;/nodes/rc_camera/parameters?&lt;wb_ratio_blue<span class="p">|</span>wb_ratio_red&gt;<span class="o">=</span>&lt;value&gt;
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-14-1 docutils container">
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v1/nodes/rc_camera/parameters?&lt;wb_ratio_blue<span class="p">|</span>wb_ratio_red&gt;<span class="o">=</span>&lt;value&gt;
 </pre></div>
 </div>
@@ -1185,7 +1284,7 @@
 </div>
 <div class="section" id="services">
 <span id="sect-cam-services"></span><h2>Services<a class="headerlink" href="#services" title="Link zu dieser Überschrift">¶</a></h2>
-<p id="index-14">Das Kamera-Modul bietet folgende Services.</p>
+<p id="index-17">Das Kamera-Modul bietet folgende Services.</p>
 <div class="section" id="reset-defaults">
 <h3><code class="docutils literal notranslate"><span class="pre">reset_defaults</span></code><a class="headerlink" href="#reset-defaults" title="Link zu dieser Überschrift">¶</a></h3>
 <blockquote>
@@ -1195,21 +1294,21 @@
 <p>Dieser Service kann wie folgt aufgerufen werden.</p>
 <div class="sphinx-tabs docutils container">
 <div class="ui top attached tabular menu sphinx-menu docutils container">
-<div class="active item sphinx-data-tab-12-0 docutils container">
+<div class="active item sphinx-data-tab-15-0 docutils container">
 <div class="docutils container">
 <strong>API Version 2</strong></div>
 </div>
-<div class="item sphinx-data-tab-12-1 docutils container">
+<div class="item sphinx-data-tab-15-1 docutils container">
 <div class="docutils container">
 <strong>API Version 1 (veraltet)</strong></div>
 </div>
 </div>
-<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-12-0 active docutils container">
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-15-0 active docutils container">
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v2/pipelines/&lt;<span class="m">0</span>,1,2,3&gt;/nodes/rc_camera/services/reset_defaults
 </pre></div>
 </div>
 </div>
-<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-12-1 docutils container">
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-15-1 docutils container">
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PUT http://&lt;host&gt;/api/v1/nodes/rc_camera/services/reset_defaults
 </pre></div>
 </div>
@@ -1217,18 +1316,18 @@
 </div>
 <div class="sphinx-tabs docutils container">
 <div class="ui top attached tabular menu sphinx-menu docutils container">
-<div class="active item sphinx-data-tab-13-0 docutils container">
+<div class="active item sphinx-data-tab-16-0 docutils container">
 <div class="docutils container">
 <strong>Request</strong></div>
 </div>
-<div class="item sphinx-data-tab-13-1 docutils container">
+<div class="item sphinx-data-tab-16-1 docutils container">
 <div class="docutils container">
 <strong>Response</strong></div>
 </div>
 </div>
-<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-13-0 active docutils container">
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-16-0 active docutils container">
 Dieser Service hat keine Argumente.</div>
-<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-13-1 docutils container">
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-16-1 docutils container">
 <p>Die Definition der <cite>Response</cite> mit jeweiligen Datentypen ist:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;reset_defaults&quot;</span><span class="p">,</span>
@@ -1364,7 +1463,7 @@ Dieser Service hat keine Argumente.</div>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'24.07.1',
+            VERSION:'24.07.2',
             LANGUAGE:'de',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
