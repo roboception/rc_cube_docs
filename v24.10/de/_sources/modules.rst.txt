@@ -1,0 +1,74 @@
+Softwaremodule
+
+Der
+
+rc_cube
+
+ wird mit einer Reihe von On-Board-Softwaremodulen mit verschiedenen
+Funktionalitäten ausgeliefert. Jedes Softwaremodul bietet über seinen
+zugehörigen
+
+Node
+
+ eine
+
+REST-API-Schnittstelle
+
+ als Programmierschnittstelle an.
+
+Der
+
+rc_cube
+
+ bietet die Möglichkeit, mehrere 3D Kameras wie den
+
+rc_visard
+
+ anzuschließen. Die Bilddaten jedes Geräts werden in separaten
+
+Kamerapipelines
+
+ verarbeitet, welche jeweils aus mehreren verschiedenen
+Softwaremodulen bestehen. Die Module, die innerhalb einer Pipeline
+laufen, sind pipelinespezifisch. Das heißt, sie können verschiedene
+Parameterwerte für jede Pipeline haben. Die Softwaremodule, die
+außerhalb der Pipelines laufen, sind global und stellen globale Daten
+für alle Pipelines bereit. Eine Übersicht ist in
+
+Abb. 9
+
+ dargestellt.
+
+
+Die pipelinespezifischen Softwaremodule des
+
+rc_cube
+
+ können unterteilt werden in
+
+3D-Kamera-Module\:(Abschnitt \ref{camera_modules:sect-3d-camera-
+modules})  welche Bildpaare aufnehmen und 3D Tiefeninformationen
+bereitstellen, und auch über die GigE Vision/GenICam-Schnittstelle des
+rc_cube konfigurierbar sind.
+
+Detektions- und Messmodule\:(Abschnitt \ref{detection_modules:sect-
+detection-modules})  welche eine Vielzahl verschiedener
+Detektionsfunktionen, wie Greifpunktberechnungen und Objekterkennung
+anbieten.
+
+Konfigurationsmodule\:(Abschnitt \ref{configuration_modules:sect-
+configuration-modules})  welche es dem Nutzer ermöglichen,
+Kalibrierungen durchzuführen und den rc_cube für spezielle Anwendungen
+zu konfigurieren.
+
+Die Softwaremodule, die global für alle Kamerapipelines auf dem
+
+rc_cube
+
+ laufen, sind
+
+Datenbankmodule\:(Abschnitt \ref{database_modules:sect-database-
+modules})  welche dem Nutzer die Konfiguration globaler Daten
+ermöglichen, die in allen anderen Modulen verfügbar sind, wie Load
+Carrier, Regions of Interest und Greifer.
+
