@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Hand-Auge-Kalibrierung &mdash; rc_cube 25.01.1
+  <title>Hand-Auge-Kalibrierung &mdash; rc_cube 25.01.2
  Dokumentation</title>
   
 
@@ -60,7 +60,7 @@
         <link rel="index" title="Stichwortverzeichnis"
               href="genindex.html"/>
         <link rel="search" title="Suche" href="search.html"/>
-    <link rel="top" title="rc_cube 25.01.1
+    <link rel="top" title="rc_cube 25.01.2
  Dokumentation" href="index.html"/>
         <link rel="up" title="Konfigurationsmodule" href="configuration_modules.html"/>
         <link rel="next" title="CollisionCheck" href="collisioncheck.html"/>
@@ -643,7 +643,7 @@
 <p class="caption"><span class="caption-number">Abb. 25 </span><span class="caption-text">Wichtige Koordinatensysteme und Transformationen für die Kalibrierung einer robotergeführten Kamera: Sie wird mit einer festen relativen Position zu einem benutzerdefinierten <em>Roboter</em>-Koordinatensystem (z.B. Flansch oder Werkzeugmittelpunkt) montiert. Es ist wichtig, dass die Pose <span class="math notranslate nohighlight">\(\mathbf{T}^{\text{ext}}_{\text{robot}}\)</span> des <em>Roboter</em>-Koordinatensystems in Bezug auf ein benutzerdefiniertes externes Referenzkoordinatensystem (<em>ext</em>) während der Kalibrierroutine gemessen werden kann. Das Ergebnis des Kalibriervorgangs ist die gewünschte Kalibriertransformation <span class="math notranslate nohighlight">\(\mathbf{T}^{\text{robot}}_{\text{camera}}\)</span>, d.h. die Pose des <em>Kamera</em>-Koordinatensystems im benutzerdefinierten <em>Roboter</em>-Koordinatensystem.</span></p>
 </div>
 <p>Zusätzliche Benutzereingaben werden benötigt, falls die Bewegung des Roboters so beschränkt ist, dass der Tool Center Point (TCP) nur um eine Achse rotieren kann. Das ist üblicherweise für Roboter mit vier Freiheitsgraden (4DOF) der Fall, welche häufig zur Palettierung eingesetzt werden. In diesem Fall muss der Benutzer angeben, welche Achse des Roboterkoordinatensystems der Rotationsachse des TCP entspricht. Außerdem muss der vorzeichenbehaftete Offset vom TCP zum Kamerakoordinatensystem entlang der TCP-Rotationsachse angegeben werden. <a class="reference internal" href="#fig-sketch-handeyecalib-robot-mounted-4dof"><span class="std std-numref">Abb. 26</span></a> zeigt die Situation.</p>
-<p>Für den <em>rc_visard</em> und <em>rc_visard NG</em> befindet sich der Ursprung des Kamerakoordinatensystems im optischen Zentrum der linken Kamera. Die ungefähre Position wird im Abschnitt <a class="reference external" href="https://doc.rc-visard.com/latest/en/hardware_spec.html#sect-coordinate-frames" title="(in rc_visard v24.10)"><span class="xref std std-ref">Coordinate frames</span></a> im rc_visard Handbuch angegeben.</p>
+<p>Für den <em>rc_visard</em> und <em>rc_visard NG</em> befindet sich der Ursprung des Kamerakoordinatensystems im optischen Zentrum der linken Kamera. Die ungefähre Position wird im Abschnitt <a class="reference external" href="https://doc.rc-visard.com/latest/en/hardware_spec.html#sect-coordinate-frames" title="(in rc_visard v25.01)"><span class="xref std std-ref">Coordinate frames</span></a> im rc_visard Handbuch angegeben.</p>
 <div class="last figure align-center" id="id2">
 <span id="fig-sketch-handeyecalib-robot-mounted-4dof"></span><a class="reference internal image-reference" href="_images/sketch_handeye_calib_robotmounted_4dof_cube_de.svg"><img alt="_images/sketch_handeye_calib_robotmounted_4dof_cube_de.svg" src="_images/sketch_handeye_calib_robotmounted_4dof_cube_de.svg" width="60%" /></a>
 <p class="caption"><span class="caption-number">Abb. 26 </span><span class="caption-text">Im Fall eines 4DOF-Roboters müssen die TCP-Rotationsachse und der Offset vom TCP zum Kamerakoordinatensystem entlang der TCP-Rotationsachse angegeben werden. Im dargestellten Fall ist der Offset negativ.</span></p>
@@ -2107,7 +2107,7 @@ Dieser Service hat keine Argumente.</div>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'25.01.1',
+            VERSION:'25.01.2',
             LANGUAGE:'de',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
