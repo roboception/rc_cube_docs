@@ -130,6 +130,91 @@ keine gültige Lizenz haben, werden ignoriert. Wenn ein Backup nur
 teilweise eingespielt werden konnte, wird der Benutzer über Warnungen
 darüber informiert.
 
+Aktualisierung der Softwarelizenz
+
+Lizenzen, die von Roboception zur Aktivierung zusätzlicher Funktionen
+erworben werden, können über die Seite System ‣ Firmware & Lizenz der
+
+Web GUI
+
+ installiert werden. Der
+
+rc_cube
+
+ muss neu gestartet werden, um die Lizenz nutzen zu können.
+
+Bemerkung: Für den Fall, dass ein Bildschirm sowie Maus und Tastatur
+  an den
+
+  rc_cube
+
+   angeschlossen sind, kann die Aktualisierung der Softwarelizenz auch
+  direkt am
+
+  rc_cube
+
+   mithilfe der Web GUI und einem separaten USB-Stick, von welchem die
+  neue Lizenzdatei installiert werden kann, erfolgen.
+
+Download der Logdateien
+
+Während des Betriebs dokumentiert der
+
+rc_cube
+
+ wichtige Informationen, Hinweise und Fehler in sogenannten
+Logdateien. Zeigt der
+
+rc_cube
+
+ ein unerwartetes oder fehlerhaftes Verhalten, kann mithilfe der
+Logdateien nach der Fehlerursache geforscht werden. Logeinträge lassen
+sich über die Seite System ‣ Logs auf der
+
+Web GUI
+
+  ansehen und filtern. Wird der Support kontaktiert (
+
+Kontakt
+
+), sind die Logdateien sehr hilfreich, um Probleme aufzuspüren. Um
+diese als tar.gz-Datei herunterzuladen, ist der Button Alle Logs
+herunterladen auf der Seite System ‣ Logs der Web GUI unter
+
+System
+
+ zu klicken.
+
+Die Logs sind nicht nur über die Web GUI, sondern auch über die
+
+REST-API-Schnittstelle
+
+ des
+
+rc_cube
+
+ zugänglich. Hierfür können die Anfragen des Typs
+
+GET /logs
+
+ und
+
+GET /logs/{log}
+
+ verwendet werden.
+
+Bemerkung: Für den Fall, dass ein Bildschirm sowie Maus und Tastatur
+  an den
+
+  rc_cube
+
+   angeschlossen sind, können die Log-Dateien mithilfe der Web GUI
+  auch direkt vom
+
+  rc_cube
+
+   auf einen separaten USB-Stick heruntergeladen werden.
+
 Aktualisierung der Firmware
 
 Angaben zur aktuellen Firmware-Version sind auf der Seite System ‣
@@ -374,88 +459,3 @@ System
 Web GUI
 
  vornehmen.
-
-Aktualisierung der Softwarelizenz
-
-Lizenzen, die von Roboception zur Aktivierung zusätzlicher Funktionen
-erworben werden, können über die Seite System ‣ Firmware & Lizenz der
-
-Web GUI
-
- installiert werden. Der
-
-rc_cube
-
- muss neu gestartet werden, um die Lizenz nutzen zu können.
-
-Bemerkung: Für den Fall, dass ein Bildschirm sowie Maus und Tastatur
-  an den
-
-  rc_cube
-
-   angeschlossen sind, kann die Aktualisierung der Softwarelizenz auch
-  direkt am
-
-  rc_cube
-
-   mithilfe der Web GUI und einem separaten USB-Stick, von welchem die
-  neue Lizenzdatei installiert werden kann, erfolgen.
-
-Download der Logdateien
-
-Während des Betriebs dokumentiert der
-
-rc_cube
-
- wichtige Informationen, Hinweise und Fehler in sogenannten
-Logdateien. Zeigt der
-
-rc_cube
-
- ein unerwartetes oder fehlerhaftes Verhalten, kann mithilfe der
-Logdateien nach der Fehlerursache geforscht werden. Logeinträge lassen
-sich über die Seite System ‣ Logs auf der
-
-Web GUI
-
-  ansehen und filtern. Wird der Support kontaktiert (
-
-Kontakt
-
-), sind die Logdateien sehr hilfreich, um Probleme aufzuspüren. Um
-diese als tar.gz-Datei herunterzuladen, ist der Button Alle Logs
-herunterladen auf der Seite System ‣ Logs der Web GUI unter
-
-System
-
- zu klicken.
-
-Die Logs sind nicht nur über die Web GUI, sondern auch über die
-
-REST-API-Schnittstelle
-
- des
-
-rc_cube
-
- zugänglich. Hierfür können die Anfragen des Typs
-
-GET /logs
-
- und
-
-GET /logs/{log}
-
- verwendet werden.
-
-Bemerkung: Für den Fall, dass ein Bildschirm sowie Maus und Tastatur
-  an den
-
-  rc_cube
-
-   angeschlossen sind, können die Log-Dateien mithilfe der Web GUI
-  auch direkt vom
-
-  rc_cube
-
-   auf einen separaten USB-Stick heruntergeladen werden.

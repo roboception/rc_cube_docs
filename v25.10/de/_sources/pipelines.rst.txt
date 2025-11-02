@@ -79,9 +79,11 @@ Eine laufende Pipeline kann entfernt werden, indem man auf Pipeline
 entfernen klickt. Einzig die Pipeline 0 kann nie gelöscht werden, da
 sie die primäre Pipeline ist. Durch Klick auf + Pipeline hinzufügen
 und anschließendes Auswählen des Pipelinetyps kann eine neue Pipeline
-erstellt werden. Sobald alle Pipelines wie gewünscht konfiguriert
-sind, können die Änderungen durch Klick auf Anwenden & Neustarten
-angewendet werden und der
+erstellt werden.
+
+Sobald alle Pipelines wie gewünscht konfiguriert sind, können die
+Änderungen durch Klick auf Anwenden & Neustarten angewendet werden und
+der
 
 rc_cube
 

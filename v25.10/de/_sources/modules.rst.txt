@@ -4,17 +4,20 @@ Der
 
 rc_cube
 
- wird mit einer Reihe von On-Board-Softwaremodulen mit verschiedenen
-Funktionalitäten ausgeliefert. Jedes Softwaremodul bietet über seinen
-zugehörigen
+ beinhaltet eine Reihe von Softwaremodulen mit verschiedenen
+Funktionalitäten. Jedes Softwaremodul bietet über seine zugehörige
 
 Node
 
- eine
+ eine Schnittstelle über
 
 REST-API-Schnittstelle
 
- als Programmierschnittstelle an.
+ oder das
+
+Generic Robot Interface
+
+ an.
 
 Der
 
@@ -56,8 +59,7 @@ unterschiedliche Laufzeitparameter.
 
 3D-Module\:(Abschnitt \ref{camera_modules:sect-3d-camera-modules})
 welche 3D Tiefeninformationen, wie Disparitäts-, Fehler- und
-Konfidenzbilder, bereitstellen, und auch über die GigE Vision/GenICam-
-Schnittstelle des rc_cube konfigurierbar sind.
+Konfidenzbilder, bereitstellen,
 
 Detektions- und Messmodule\:(Abschnitt \ref{detection_modules:sect-
 detection-modules})  welche eine Vielzahl verschiedener

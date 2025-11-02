@@ -16,10 +16,6 @@ Stereo-Matching-Parameter entweder dort oder über die REST-API (
 
 REST-API-Schnittstelle
 
-) oder über GigE Vision (
-
-GigE Vision 2.0/GenICam-Schnittstelle
-
 ) ändern.
 
 Übersicht über die Parameter
@@ -56,16 +52,23 @@ Sekunden im Auto Belichtungsmodus  exp_width  int32  0  1279  0
 Breite der Region für automatische Belichtung, 0 für das ganze Bild
 fps  float64  1.0  25.0  25.0  Bildwiederholrate in Hertz  gain_value
 float64  0.0  18.0  0.0  Verstärkung in Dezibel, wenn nicht im Auto
-Belichtungsmodus  gamma  float64  0.10000000149011612  10.0  1.0
-Gammafaktor  trigger_activation  string  -  -  RisingEdge
-Triggeraktivierung: [RisingEdge, FallingEdge, AnyEdge]  trigger_source
-string  -  -  Software  Triggerquelle: [Software, In1, In2, In3, In4]
-wb_auto  bool  false  true  true  Ein- und Ausschalten des manuellen
-Weißabgleichs (nur für Farbkameras)  wb_ratio_blue  float64  0.125
-8.0  2.4  Blau-zu-Grün-Verhältnis, falls wb_auto auf false gesetzt ist
-(nur für Farbkameras)  wb_ratio_red  float64  0.125  8.0  1.2  Rot-zu-
-Grün-Verhältnis, falls wb_auto auf false gesetzt ist (nur für
-Farbkameras)
+Belichtungsmodus  gamma  float64  0.1  10.0  1.0  Gammafaktor
+trigger_activation  string  -  -  RisingEdge  Triggeraktivierung:
+[RisingEdge, FallingEdge, AnyEdge]  trigger_source  string  -  -
+Software  Triggerquelle: [Software, In1, In2, In3, In4]  wb_auto  bool
+false  true  true  Ein- und Ausschalten des manuellen Weißabgleichs
+(nur für Farbkameras)  wb_ratio_blue  float64  0.125  8.0  2.4  Blau-
+zu-Grün-Verhältnis, falls wb_auto auf false gesetzt ist (nur für
+Farbkameras)  wb_ratio_red  float64  0.125  8.0  1.2  Rot-zu-Grün-
+Verhältnis, falls wb_auto auf false gesetzt ist (nur für Farbkameras)
+
+Die gleichen Parameter sind – mit leicht abweichenden Namen und
+teilweise mit anderen Einheiten oder Datentypen – auch über die
+GenICam-Schnittstelle verfügbar (siehe
+
+GigE Vision 2.0/GenICam-Schnittstelle
+
+).
 
 Beschreibung der Laufzeitparameter
 
@@ -505,36 +508,27 @@ API Version 1 (veraltet)
 
    PUT http://<host>/api/v1/nodes/rc_camera/parameters?<wb_ratio_blue|wb_ratio_red>=<value>
 
-Die gleichen Parameter sind – mit leicht abweichenden Namen und
-teilweise mit anderen Einheiten oder Datentypen – auch über die
-GenICam-Schnittstelle verfügbar (siehe
-
-GigE Vision 2.0/GenICam-Schnittstelle
-
-).
-
 Statuswerte
 
 Dieses Modul meldet folgende Statuswerte:
 
 Statuswerte des rc_camera-Moduls      Name  Beschreibung  baseline
-Basisabstand t der Stereokamera in Metern  brightness  Nicht verfügbar
-für blaze Sensoren. Aktuelle Helligkeit als Wert zwischen 0 und 1
-color  0 für monochrome Kameras, 1 für Farbkameras  exp  Aktuelle
-Belichtungszeit in Sekunden. Dieser Wert wird unter der Bildvorschau
-in der Web GUI als Belichtung (ms) angezeigt.  device_trigger_sources
-Angabe der verfügbaren Triggerquellen für den Fall, dass das Gerät
-getriggert werden kann  focal  Brennweitenfaktor, normalisiert auf
-eine Bildbreite von 1  fps  Aktuelle Bildwiederholrate der
-Kamerabilder in Hertz. Dieser Wert wird unter der Bildvorschau in der
-Web GUI als FPS (Hz) angezeigt.  gain  Aktueller Verstärkungsfaktor in
-Dezibel. Dieser Wert wird unter der Bildvorschau in der Web GUI als
-Verstärkung (dB) angezeigt.  gamma  Aktueller Gammawert  height  Höhe
-des Kamerabilds in Pixeln. Dieser Wert wird unter der Bildvorschau in
-der Web GUI als zweiter Teil von Auflösung (px) angezeigt.
-last_timestamp_grabbed  Zeitstempel des letzten aufgenommenen Bildes,
-wenn die Kamera im Triggermodus ist  out1_reduction  Nicht verfügbar
-für blaze Sensoren. Anteil der Helligkeits-Reduktion (0.0 - 1.0) für
+Basisabstand t der Stereokamera in Metern  brightness  Aktuelle
+Helligkeit als Wert zwischen 0 und 1  color  0 für monochrome Kameras,
+1 für Farbkameras  exp  Aktuelle Belichtungszeit in Sekunden. Dieser
+Wert wird unter der Bildvorschau in der Web GUI als Belichtung (ms)
+angezeigt.  device_trigger_sources  Angabe der verfügbaren
+Triggerquellen für den Fall, dass das Gerät getriggert werden kann
+focal  Brennweitenfaktor, normalisiert auf eine Bildbreite von 1  fps
+Aktuelle Bildwiederholrate der Kamerabilder in Hertz. Dieser Wert wird
+unter der Bildvorschau in der Web GUI als FPS (Hz) angezeigt.  gain
+Aktueller Verstärkungsfaktor in Dezibel. Dieser Wert wird unter der
+Bildvorschau in der Web GUI als Verstärkung (dB) angezeigt.  gamma
+Aktueller Gammawert  height  Höhe des Kamerabilds in Pixeln. Dieser
+Wert wird unter der Bildvorschau in der Web GUI als zweiter Teil von
+Auflösung (px) angezeigt.  last_timestamp_grabbed  Zeitstempel des
+letzten aufgenommenen Bildes, wenn die Kamera im Triggermodus ist
+out1_reduction  Anteil der Helligkeits-Reduktion (0.0 - 1.0) für
 Bilder mit GPIO-Ausgang 1=LOW, wenn exp_auto_mode=AdaptiveOut1 oder
 exp_auto_mode=Out1High. Dieser Wert wird unter der Bildvorschau in der
 Web GUI als Out1 Reduktion (%) angezeigt.  params_override_active  1

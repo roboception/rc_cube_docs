@@ -13,10 +13,6 @@ REST-API (
 
 REST-API interface
 
-) or GigE Vision (
-
-GigE Vision 2.0/GenICam image interface
-
 ).
 
 Parameter overview
@@ -51,15 +47,22 @@ time in seconds in Manual exposure mode  exp_width  int32  0  1279  0
 Width of auto exposure region. 0 for whole image.  fps  float64  1.0
 25.0  25.0  Frames per second in Hertz  gain_value  float64  0.0  18.0
 0.0  Gain value in decibel if not in Auto exposure mode  gamma
-float64  0.10000000149011612  10.0  1.0  Gamma factor
-trigger_activation  string  -  -  RisingEdge  Trigger activation:
-[RisingEdge, FallingEdge, AnyEdge]  trigger_source  string  -  -
-Software  Trigger source: [Software, In1, In2, In3, In4]  wb_auto
-bool  false  true  true  Switching white balance on and off (only for
-color camera)  wb_ratio_blue  float64  0.125  8.0  2.4  Blue balance
-ratio if wb_auto is false (only for color camera)  wb_ratio_red
-float64  0.125  8.0  1.2  Red balance ratio if wb_auto is false (only
-for color camera)
+float64  0.1  10.0  1.0  Gamma factor  trigger_activation  string  -
+-  RisingEdge  Trigger activation: [RisingEdge, FallingEdge, AnyEdge]
+trigger_source  string  -  -  Software  Trigger source: [Software,
+In1, In2, In3, In4]  wb_auto  bool  false  true  true  Switching white
+balance on and off (only for color camera)  wb_ratio_blue  float64
+0.125  8.0  2.4  Blue balance ratio if wb_auto is false (only for
+color camera)  wb_ratio_red  float64  0.125  8.0  1.2  Red balance
+ratio if wb_auto is false (only for color camera)
+
+These parameters are also available over the GenICam interface with
+slightly different names and partly with different units or data types
+(see
+
+GigE Vision 2.0/GenICam image interface
+
+).
 
 Description of run-time parameters
 
@@ -460,44 +463,35 @@ API version 1 (deprecated)
 
    PUT http://<host>/api/v1/nodes/rc_camera/parameters?<wb_ratio_blue|wb_ratio_red>=<value>
 
-These parameters are also available over the GenICam interface with
-slightly different names and partly with different units or data types
-(see
-
-GigE Vision 2.0/GenICam image interface
-
-).
-
 Status values
 
 This module reports the following status values:
 
 The rc_camera module's status values      Name  Description  baseline
-Stereo baseline t in meters  brightness  Not available for blaze
-sensor. Current brightness of the image as value between 0 and 1
-color  0 for monochrome cameras, 1 for color cameras  exp  Current
-exposure time in seconds. This value is shown below the image preview
-in the Web GUI as Exposure (ms).  device_trigger_sources  Gives the
-available trigger sources, in case the device can be triggered  focal
-Focal length factor normalized to an image width of 1  fps  Current
-frame rate of the camera images in Hertz. This value is shown in the
-Web GUI below the image preview as FPS (Hz).  gain  Current gain
-factor in decibel. This value is shown in the Web GUI below the image
-preview as Gain (dB).  gamma  Current gamma value.  height  Height of
-the camera image in pixels. This value is shown in the Web GUI below
-the image preview as the second part of Resolution (px).
-last_timestamp_grabbed  Timestamp of the last image acquired in case
-the camera is in trigger mode  out1_reduction  Not available for blaze
-sensor. Fraction of reduction (0.0 - 1.0) of brightness for images
-with GPIO Out1=LOW in exp_auto_mode=AdaptiveOut1 or
-exp_auto_mode=Out1High. This value is shown in the Web GUI below the
-image preview as Out1 Reduction (%).  params_override_active  1 if
-parameters are temporarily overwritten by a running calibration
-process  selfcalib_counter  How often a correction has been performed
-by the self-calibration  selfcalib_offset  Current offset determined
-by the self-calibration  test  0 for live images and 1 for test images
-width  Width of the camera image in pixels. This value is shown in the
-Web GUI below the image preview as the first part of Resolution (px).
+Stereo baseline t in meters  brightness  Current brightness of the
+image as value between 0 and 1  color  0 for monochrome cameras, 1 for
+color cameras  exp  Current exposure time in seconds. This value is
+shown below the image preview in the Web GUI as Exposure (ms).
+device_trigger_sources  Gives the available trigger sources, in case
+the device can be triggered  focal  Focal length factor normalized to
+an image width of 1  fps  Current frame rate of the camera images in
+Hertz. This value is shown in the Web GUI below the image preview as
+FPS (Hz).  gain  Current gain factor in decibel. This value is shown
+in the Web GUI below the image preview as Gain (dB).  gamma  Current
+gamma value.  height  Height of the camera image in pixels. This value
+is shown in the Web GUI below the image preview as the second part of
+Resolution (px).  last_timestamp_grabbed  Timestamp of the last image
+acquired in case the camera is in trigger mode  out1_reduction
+Fraction of reduction (0.0 - 1.0) of brightness for images with GPIO
+Out1=LOW in exp_auto_mode=AdaptiveOut1 or exp_auto_mode=Out1High. This
+value is shown in the Web GUI below the image preview as Out1
+Reduction (%).  params_override_active  1 if parameters are
+temporarily overwritten by a running calibration process
+selfcalib_counter  How often a correction has been performed by the
+self-calibration  selfcalib_offset  Current offset determined by the
+self-calibration  test  0 for live images and 1 for test images  width
+Width of the camera image in pixels. This value is shown in the Web
+GUI below the image preview as the first part of Resolution (px).
 
 Services
 

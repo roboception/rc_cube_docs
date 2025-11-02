@@ -126,6 +126,84 @@ rc_cube
 or do not have a valid license will be skipped. If a backup can only
 be restored partially, the user will be notified by warnings.
 
+Updating the software license
+
+Licenses that are purchased from Roboception for enabling additional
+features can be installed via the
+
+Web GUI
+
+'s  System ‣ Firmware & License page. The
+
+rc_cube
+
+ has to be rebooted to apply the licenses.
+
+Note: If a computer screen as well as mouse and keyboard are
+  connected to the
+
+  rc_cube
+
+  , the software license can also be updated directly at the
+
+  rc_cube
+
+   using the Web GUI and a separate USB flash drive from which the new
+  license file can be installed.
+
+Downloading log files
+
+During operation, the
+
+rc_cube
+
+ logs important information, warnings, and errors into files. If the
+
+rc_cube
+
+ exhibits unexpected or erroneous behavior, the log files can be used
+to trace its origin. Log messages can be viewed and filtered using the
+
+Web GUI
+
+'s  System ‣ Logs page. If contacting the support (
+
+Contact
+
+), the log files are very useful for tracking possible problems. To
+download them as a .tar.gz file, click on Download all logs on the Web
+GUI's System ‣ Logs page.
+
+Aside from the Web GUI, the logs are also accessible via the
+
+rc_cube
+
+'s
+
+REST-API interface
+
+ using the
+
+GET /logs
+
+ and
+
+GET /logs/{log}
+
+ requests.
+
+Note: If a computer screen as well as mouse and keyboard are
+  connected to the
+
+  rc_cube
+
+  , the log files can also be download directly from the
+
+  rc_cube
+
+   using the Web GUI and a separate USB flash drive on which the log
+  files can be stored.
+
 Updating the firmware
 
 Information about the current firmware image version can be found on
@@ -361,81 +439,3 @@ Web GUI
 System
 
  page.
-
-Updating the software license
-
-Licenses that are purchased from Roboception for enabling additional
-features can be installed via the
-
-Web GUI
-
-'s  System ‣ Firmware & License page. The
-
-rc_cube
-
- has to be rebooted to apply the licenses.
-
-Note: If a computer screen as well as mouse and keyboard are
-  connected to the
-
-  rc_cube
-
-  , the software license can also be updated directly at the
-
-  rc_cube
-
-   using the Web GUI and a separate USB flash drive from which the new
-  license file can be installed.
-
-Downloading log files
-
-During operation, the
-
-rc_cube
-
- logs important information, warnings, and errors into files. If the
-
-rc_cube
-
- exhibits unexpected or erroneous behavior, the log files can be used
-to trace its origin. Log messages can be viewed and filtered using the
-
-Web GUI
-
-'s  System ‣ Logs page. If contacting the support (
-
-Contact
-
-), the log files are very useful for tracking possible problems. To
-download them as a .tar.gz file, click on Download all logs on the Web
-GUI's System ‣ Logs page.
-
-Aside from the Web GUI, the logs are also accessible via the
-
-rc_cube
-
-'s
-
-REST-API interface
-
- using the
-
-GET /logs
-
- and
-
-GET /logs/{log}
-
- requests.
-
-Note: If a computer screen as well as mouse and keyboard are
-  connected to the
-
-  rc_cube
-
-  , the log files can also be download directly from the
-
-  rc_cube
-
-   using the Web GUI and a separate USB flash drive on which the log
-  files can be stored.

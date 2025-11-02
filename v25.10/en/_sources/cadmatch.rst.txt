@@ -390,6 +390,10 @@ Disparity, error, and confidence images from the Blaze module
 (rc_blaze, Section \ref{blaze:sect-blaze}), in case a Basler blaze
 camera is used
 
+Disparity, error, and confidence images from the Orbbec module
+(rc_orbbec, Section \ref{orbbec:sect-orbbec}), in case an Orbbec
+camera is used
+
 Disparity, error, and confidence images from the Zivid module
 (rc_zivid, Section \ref{zivid:sect-zivid}), in case a zivid camera is
 used

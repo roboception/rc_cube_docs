@@ -5,9 +5,14 @@ The
 rc_cube
 
  is a high-performance 3D-image-processing device that is used in
-combination one or more 3D cameras such as Roboception's 3D camera
+combination with one or more 3D cameras such as Roboception's 3D
+camera
 
 rc_visard
+
+ or
+
+rc_viscore
 
 . Together, they provide rectified camera, disparity, confidence, and
 error images, which allow the viewed scene's depth values along with

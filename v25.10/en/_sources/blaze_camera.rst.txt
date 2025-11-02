@@ -16,10 +16,6 @@ REST-API (
 
 REST-API interface
 
-) or GigE Vision (
-
-GigE Vision 2.0/GenICam image interface
-
 ).
 
 Parameter overview
@@ -49,6 +45,14 @@ camera)  wb_ratio_blue  float64  0.125  8.0  1.0  Blue to green
 balance ratio if wb_auto is false (only for color camera)
 wb_ratio_red  float64  0.125  8.0  1.0  Red to green balance ratio if
 wb_auto is false (only for color camera)
+
+These parameters are also available over the GenICam interface with
+slightly different names and partly with different units or data types
+(see
+
+GigE Vision 2.0/GenICam image interface
+
+).
 
 Description of run-time parameters
 
@@ -228,14 +232,6 @@ API version 2
 API version 1 (deprecated)
 
    PUT http://<host>/api/v1/nodes/rc_camera/parameters?<wb_ratio_blue|wb_ratio_red>=<value>
-
-These parameters are also available over the GenICam interface with
-slightly different names and partly with different units or data types
-(see
-
-GigE Vision 2.0/GenICam image interface
-
-).
 
 Status values
 

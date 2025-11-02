@@ -16,10 +16,6 @@ Stereo-Matching-Parameter entweder dort oder über die REST-API (
 
 REST-API-Schnittstelle
 
-) oder über GigE Vision (
-
-GigE Vision 2.0/GenICam-Schnittstelle
-
 ) ändern.
 
 Übersicht über die Parameter
@@ -52,6 +48,14 @@ Weißabgleichs (nur für Farbkameras)  wb_ratio_blue  float64  0.125
 (nur für Farbkameras)  wb_ratio_red  float64  0.125  8.0  1.0  Rot-zu-
 Grün-Verhältnis, falls wb_auto auf false gesetzt ist (nur für
 Farbkameras)
+
+Die gleichen Parameter sind – mit leicht abweichenden Namen und
+teilweise mit anderen Einheiten oder Datentypen – auch über die
+GenICam-Schnittstelle verfügbar (siehe
+
+GigE Vision 2.0/GenICam-Schnittstelle
+
+).
 
 Beschreibung der Laufzeitparameter
 
@@ -247,14 +251,6 @@ API Version 2
 API Version 1 (veraltet)
 
    PUT http://<host>/api/v1/nodes/rc_camera/parameters?<wb_ratio_blue|wb_ratio_red>=<value>
-
-Die gleichen Parameter sind – mit leicht abweichenden Namen und
-teilweise mit anderen Einheiten oder Datentypen – auch über die
-GenICam-Schnittstelle verfügbar (siehe
-
-GigE Vision 2.0/GenICam-Schnittstelle
-
-).
 
 Statuswerte
 

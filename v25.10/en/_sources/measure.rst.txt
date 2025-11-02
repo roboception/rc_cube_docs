@@ -5,7 +5,7 @@ Introduction
 The Measure module allows measuring of depth values in a specific
 region of interest.
 
-The Measure module is an on-board module of the
+The Measure module is a base module which is available on every
 
 rc_cube
 
@@ -57,6 +57,10 @@ camera is used
 
 Disparity images from the Blaze module (rc_blaze, Section \ref{blaze
 :sect-blaze}), in case a Basler blaze camera is used
+
+Disparity, error, and confidence images from the Orbbec module
+(rc_orbbec, Section \ref{orbbec:sect-orbbec}), in case an Orbbec
+camera is used
 
 Disparity images from the Zivid module (rc_zivid, Section \ref{zivid
 :sect-zivid}), in case a zivid camera is used

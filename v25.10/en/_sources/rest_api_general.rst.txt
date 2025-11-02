@@ -28,9 +28,10 @@ For actual HTTP requests, the
 
 current API version is appended
 
- to the entry point of the API, i.e., "http://<host>/api/v2". All data
-sent to and received by the REST-API follows the JavaScript Object
-Notation (JSON). The API is designed to let the user
+ to the entry point of the API, i.e., "http://<host>/api/v2".
+
+All data sent to and received by the REST-API follows the JavaScript
+Object Notation (JSON). The API is designed to let the user
 
 create, retrieve, modify, and delete
 
@@ -178,15 +179,19 @@ status, parameters, and offered services, for storing data used in all
 camera pipelines and multiple modules, such as load carriers, grippers
 and regions of interest.
 
-/pipelines  Access to the status and configuration of the camera
-pipelines.
-
 /pipelines/<number>/nodes  Access the rc_cube's 3D-camera, detection
 and configuration software modules \:(Section \ref{modules:sect-
 modules}) of the camera pipeline with the specified number, with their
 run-time status, parameters, and offered services.
 
+/pipelines  Access to the status and configuration of the camera
+pipelines.
+
 /templates  Access the object templates on the rc_cube.
+
+/cad  Access the cad elements, e.g. for grippers, on the rc_cube.
+
+/presets  Access the 2D and 3D user-defined presets for zivid cameras.
 
 /system  Access the system state, set network configuration, configure
 the camera pipeline types, and manage licenses as well as firmware
@@ -195,4 +200,7 @@ updates.
 /userspace  Access the UserSpace on the rc_cube.
 
 /logs  Access the log files on the rc_cube.
+
+/generic_robot_interface  Access the job and hec_configs for the
+Generic Robot Interface on the rc_cube.
 

@@ -5,11 +5,11 @@ Einleitung
 Das Measure Modul ermöglicht die Messung von Tiefenwerten in einer
 Region of Interest.
 
-Das Measure Modul ist ein Modul, welches intern auf dem
+Das Measure Modul ist ein Basismodul, welches auf jedem
 
 rc_cube
 
- läuft.
+ verfügbar ist.
 
 Tiefe messen
 
@@ -66,6 +66,9 @@ Stereokamera verwendet wird
 
 Die Disparitätsbilder des Blaze Modul (rc_blaze, Abschnitt \ref{blaze
 :sect-blaze}), falls eine Basler blaze Kamera verwendet wird
+
+Die Disparitätsbilder der Orbbec Modul (rc_orbbec, Abschnitt
+\ref{orbbec:sect-orbbec}), falls eine Orbbec Kamera verwendet wird
 
 die Disparitätsbilder des Zivid Modul (rc_zivid, Abschnitt \ref{zivid
 :sect-zivid}), falls eine zivid Kamera verwendet wird

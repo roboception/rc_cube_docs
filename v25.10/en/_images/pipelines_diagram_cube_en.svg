@@ -58,7 +58,7 @@
   </font>
  </defs>
  <defs class="TextShapeIndex">
-  <g ooo:slide="id1" ooo:id-list="id3 id4 id5 id6 id7 id8 id9 id10 id11 id12 id13 id14 id15 id16 id17 id18 id19 id20 id21 id22 id23 id24 id25 id26 id27 id28 id29 id30 id31 id32 id33 id34 id35 id36 id37 id38 id39 id40 id41 id42 id43 id44 id45 id46 id47 id48 id49"/>
+  <g ooo:slide="id1" ooo:id-list="id3 id4 id5 id6 id7 id8 id9 id10 id11 id12 id13 id14 id15 id16 id17 id18 id19 id20 id21 id22 id23 id24 id25 id26 id27 id28 id29 id30 id31 id32 id33 id34 id35 id36 id37 id38 id39 id40 id41 id42 id43 id44 id45 id46 id47 id48 id49 id50 id51"/>
  </defs>
  <defs class="EmbeddedBulletChars">
   <g id="bullet-char-template-57356" transform="scale(0.00048828125,-0.00048828125)">
@@ -458,16 +458,30 @@
       </g>
       <g class="com.sun.star.drawing.LineShape">
        <g id="id48">
-        <rect class="BoundingBox" stroke="none" fill="none" x="13502" y="10241" width="353" height="2668"/>
-        <path fill="none" stroke="rgb(0,0,0)" stroke-width="35" stroke-linejoin="round" d="M 13678,10709 L 13678,12440"/>
-        <path fill="rgb(0,0,0)" stroke="none" d="M 13817,10705 L 13854,10733 13678,10241 13502,10733 13537,10706 13580,10685 13626,10671 13676,10666 13726,10670 13774,10684 13817,10705 Z"/>
-        <path fill="rgb(0,0,0)" stroke="none" d="M 13539,12444 L 13502,12416 13678,12908 13854,12416 13819,12443 13776,12464 13730,12478 13680,12483 13630,12479 13582,12465 13539,12444 Z"/>
+        <rect class="BoundingBox" stroke="none" fill="none" x="14867" y="10241" width="353" height="2668"/>
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="35" stroke-linejoin="round" d="M 15043,10709 L 15043,12440"/>
+        <path fill="rgb(0,0,0)" stroke="none" d="M 15182,10705 L 15219,10733 15043,10241 14867,10733 14902,10706 14945,10685 14991,10671 15041,10666 15091,10670 15139,10684 15182,10705 Z"/>
+        <path fill="rgb(0,0,0)" stroke="none" d="M 14904,12444 L 14867,12416 15043,12908 15219,12416 15184,12443 15141,12464 15095,12478 15045,12483 14995,12479 14947,12465 14904,12444 Z"/>
        </g>
       </g>
       <g class="TextShape">
        <g id="id49">
-        <rect class="BoundingBox" stroke="none" fill="none" x="13605" y="11057" width="3685" height="963"/>
-        <text class="SVGTextShape"><tspan class="TextParagraph" font-family="Open Sans, sans-serif" font-size="494px" font-weight="400"><tspan class="TextPosition" x="13855" y="11711"><tspan fill="rgb(0,0,0)" stroke="none" style="white-space: pre">Rest API</tspan></tspan></tspan></text>
+        <rect class="BoundingBox" stroke="none" fill="none" x="14970" y="10757" width="6605" height="2944"/>
+        <text class="SVGTextShape"><tspan class="TextParagraph" font-family="Open Sans, sans-serif" font-size="494px" font-weight="400"><tspan class="TextPosition" x="15220" y="11411"><tspan fill="rgb(0,0,0)" stroke="none" style="white-space: pre">Generic Robot Interface </tspan></tspan><tspan class="TextPosition" x="15220" y="12084"><tspan fill="rgb(0,0,0)" stroke="none" style="white-space: pre">(Port 7100)</tspan></tspan></tspan></text>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.LineShape">
+       <g id="id50">
+        <rect class="BoundingBox" stroke="none" fill="none" x="9914" y="10242" width="353" height="2668"/>
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="35" stroke-linejoin="round" d="M 10090,10710 L 10090,12441"/>
+        <path fill="rgb(0,0,0)" stroke="none" d="M 10229,10706 L 10266,10734 10090,10242 9914,10734 9949,10707 9992,10686 10038,10672 10088,10667 10138,10671 10186,10685 10229,10706 Z"/>
+        <path fill="rgb(0,0,0)" stroke="none" d="M 9951,12445 L 9914,12417 10090,12909 10266,12417 10231,12444 10188,12465 10142,12479 10092,12484 10042,12480 9994,12466 9951,12445 Z"/>
+       </g>
+      </g>
+      <g class="TextShape">
+       <g id="id51">
+        <rect class="BoundingBox" stroke="none" fill="none" x="10017" y="11058" width="3685" height="963"/>
+        <text class="SVGTextShape"><tspan class="TextParagraph" font-family="Open Sans, sans-serif" font-size="494px" font-weight="400"><tspan class="TextPosition" x="10267" y="11712"><tspan fill="rgb(0,0,0)" stroke="none" style="white-space: pre">Rest API</tspan></tspan></tspan></text>
        </g>
       </g>
      </g>

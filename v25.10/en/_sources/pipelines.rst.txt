@@ -76,9 +76,10 @@ type in the drop down field. A running pipeline can be removed by
 clicking Remove Pipeline. Only pipeline 0 can never be removed,
 because this is the primary pipeline. Clicking on + Add Pipeline
 allows to choose the type for the new pipeline and creates a new
-pipeline of the chosen type. Once the pipelines are configured as
-desired, clicking Apply Changes & Reboot will apply the new
-configuration and immediately reboot the
+pipeline of the chosen type.
+
+Once the pipelines are configured as desired, clicking Apply Changes &
+Reboot will apply the new configuration and immediately reboot the
 
 rc_cube
 
@@ -154,7 +155,7 @@ if empty, no camera will be connected
 
 By pressing Save, the entered device filter is applied and a camera
 matching the device filter is connected to this pipeline, if possible.
-Changing the device filter does not require a reboot of the
+Changing the device filter does not require a restart of the
 
 rc_cube
 

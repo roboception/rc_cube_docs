@@ -29,10 +29,11 @@ Programmierschnittstelle die
 
 aktuelle Version der Schnittstelle als Postfix angehangen
 
-, d.h. "http://<host>/api/v2". Alle Daten, die an die REST-API gesandt
-und von ihr empfangen werden, entsprechen dem JSON-Datenformat
-(JavaScript Object Notation). Die Programmierschnittstelle ist so
-gestaltet, dass der Benutzer die in
+, d.h. "http://<host>/api/v2".
+
+Alle Daten, die an die REST-API gesandt und von ihr empfangen werden,
+entsprechen dem JSON-Datenformat (JavaScript Object Notation). Die
+Programmierschnittstelle ist so gestaltet, dass der Benutzer die in
 
 Verfügbare Ressourcen und Anfragen
 
@@ -184,16 +185,21 @@ Laufzeitzuständen, Parametern und angebotenen Services, um Daten zu
 speichern, die in allen Kamerapipelines und mehreren Modulen genutzt
 werden, z.B. Load Carrier, Greifer und Regions of Interest.
 
-/pipelines  Zugriff auf den Status und die Konfiguration der
-Kamerapipelines.
-
 /pipelines/<number>/nodes  Zugriff auf die 3D-Kamera-, Detektions- und
 Konfigurations-Softwaremodule \:(Abschnitt \ref{modules:sect-modules})
 der Kamerapipeline des rc_cube mit der angegebenen Nummer number, mit
 ihren jeweiligen Laufzeitzuständen, Parametern und verfügbaren
 Services.
 
+/pipelines  Zugriff auf den Status und die Konfiguration der
+Kamerapipelines.
+
 /templates  Zugriff auf die im rc_cube hinterlegten Objekttemplates.
+
+/cad  Zugriff auf die CAD-Elemente, z.B. für Greifer, im rc_cube.
+
+/presets  Zugriff auf die benutzerdefinierten 2D und 3D
+Voreinstellungen für zivid Kameras.
 
 /system  Zugriff auf Systemzustand, Netzwerkkonfiguration,
 Konfiguration der Kamerapipelines, und Verwaltung der Lizenzen sowie
@@ -202,4 +208,8 @@ der Firmware-Updates.
 /userspace  Zugriff auf den UserSpace des rc_cube.
 
 /logs  Zugriff auf die im rc_cube hinterlegten Logdateien.
+
+/generic_robot_interface  Zugriff auf die Jobs und Hand-Auge-
+Kalibrierkonfigurationen für das Generic Robot Interface auf dem
+rc_cube.
 

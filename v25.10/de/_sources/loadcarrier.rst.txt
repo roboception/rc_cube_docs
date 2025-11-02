@@ -162,6 +162,10 @@ die Disparitäts-, Konfidenz- und Fehlerbilder des Blaze Modul
 (rc_blaze, Abschnitt \ref{blaze:sect-blaze}), falls eine Basler blaze
 Kamera verwendet wird
 
+die Disparitäts-, Konfidenz- und Fehlerbilder der Orbbec Modul
+(rc_orbbec, Abschnitt \ref{orbbec:sect-orbbec}), falls eine Orbbec
+Kamera verwendet wird
+
 die Disparitäts-, Konfidenz- und Fehlerbilder des Zivid Modul
 (rc_zivid, Abschnitt \ref{zivid:sect-zivid}), falls eine zivid Kamera
 verwendet wird
