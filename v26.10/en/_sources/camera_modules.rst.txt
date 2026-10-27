@@ -1,0 +1,51 @@
+3D modules
+
+The
+
+rc_cube
+
+'s 3D camera software consists of the following modules:
+
+Stereo matching module (rc_stereomatching, Section
+\ref{stereo_matching:sect-stereo-matching})  uses the rectified stereo
+image pairs of the connected stereo camera, e.g. the rc_visard, to
+compute 3D depth information such as disparity, error, and confidence
+images. This module only runs on pipeline types for stereo cameras,
+i.e. rc_visard, rc_viscore and stereo_ace.
+
+Zivid module (rc_zivid, Section \ref{zivid:sect-zivid})  provides 3D
+depth information such as disparity, error, and confidence images of
+the connected zivid structured light camera. This module only runs on
+pipelines of type zivid.
+
+Orbbec module (rc_orbbec, Section \ref{orbbec:sect-orbbec})  provides
+3D depth information such as disparity, error, and confidence images
+of the connected Orbbec Gemini 335Le stereo camera. This module only
+runs on pipelines of type orbbec.
+
+Blaze module (rc_blaze, Section \ref{blaze:sect-blaze})  provides 3D
+depth information such as disparity, error, and confidence images of
+the connected Basler blaze RGB-D camera. This module only runs on
+pipelines of type blaze.
+
+These modules are pipeline specific, which means that they run inside
+each camera pipeline. Changes to their settings or parameters only
+affect the corresponding pipeline and have no influence on the other
+camera pipelines running on the
+
+rc_cube
+
+.
+
+The 3D modules, which provide time-stamped 3D depth information such
+as disparity, error, and confidence images, are also accessible via
+the
+
+rc_cube
+
+'s
+
+GigE Vision/GenICam interface
+
+.
+
